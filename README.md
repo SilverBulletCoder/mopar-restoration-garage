@@ -8,7 +8,7 @@ A public website and educational project documenting classic Mopar restorations 
 - 1974 Dodge W100
 
 ## Site
-This repository contains a proposed Astro static website. Deployment to Cloudflare Pages is not yet configured.
+This repository contains an Astro static website deployed through Cloudflare Pages, with the owner-configured domain [mopar.thatcrafter.com](https://mopar.thatcrafter.com). The production branch is `main`; Cloudflare is configured to build with `npm run build` and publish `dist/`. The owner reported restoring the GitHub connection on 2026-10-15. Automatic deployments should resume when a new commit is pushed; verify the production deployment status in Cloudflare Pages.
 
 ### Local development
 ```sh

@@ -23,6 +23,9 @@ npm run build
 
 Output directory: `dist/`.
 
+## About the creator
+The owner-approved first-person bio is available at `/about/` in the Astro site. It explains why ThatCrafter uses AI for ADHD-aware project continuity, including non-linear tasks and resuming paused work. No legal name or other private identifier is included.
+
 ## Content and privacy
 Only reviewed, explicitly approved information belongs in this **public** repository. Do not publish private conversation logs, credentials, home camera access details, personal addresses, or proprietary repair manuals. See [CONTRIBUTING.md](CONTRIBUTING.md).
 

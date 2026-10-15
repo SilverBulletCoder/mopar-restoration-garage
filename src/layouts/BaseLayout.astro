@@ -1,0 +1,38 @@
+---
+const { title = 'Mopar Restoration Garage', description = 'Documenting Mopar restoration projects and practical AI-assisted learning.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <style is:global>
+      :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #111417; color: #f4f4f2; }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      a { color: #ffbd72; }
+      header, main, footer { max-width: 1100px; margin: auto; padding: 1.3rem; }
+      header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #393f43; }
+      nav { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+      h1 { font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.1; }
+      h2 { margin-top: 2rem; }
+      .muted { color: #b7c0c2; }
+      .cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 1rem; }
+      .card { background: #202629; border: 1px solid #40474b; border-radius: 14px; padding: 1.3rem; }
+      .eyebrow { text-transform: uppercase; letter-spacing: .12em; color: #ffbd72; font-size: .85rem; font-weight: 700; }
+      footer { border-top: 1px solid #393f43; margin-top: 4rem; color: #b7c0c2; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/" style="font-weight:800;text-decoration:none;color:#fff">Mopar Restoration Garage</a>
+      <nav aria-label="Main navigation">
+        <a href="/">Home</a><a href="/builds/">Builds</a><a href="/videos/">Videos</a><a href="/learn-ai/">Learn AI</a>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer>Documenting the work, the challenges, and what we learn along the way.</footer>
+  </body>
+</html>

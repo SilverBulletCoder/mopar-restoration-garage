@@ -1,19 +1,93 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout>
-  <p class="eyebrow">Classic Mopar projects • Real progress</p>
-  <h1>Built in the garage. Documented from the beginning.</h1>
-  <p class="muted">Follow three vintage Dodge and Plymouth projects, with honest progress updates, videos, and lessons learned using AI as a project assistant.</p>
-  <div class="cards">
-    <article class="card"><h2>1973 Plymouth 'Cuda</h2><p>The featured restoration project.</p><a href="/builds/">Explore the build →</a></article>
-    <article class="card"><h2>1957 Dodge D100</h2><p>Updates from the vintage truck project.</p><a href="/builds/">Explore the build →</a></article>
-    <article class="card"><h2>1974 Dodge W100</h2><p>Mechanical work, restoration, and progress.</p><a href="/builds/">Explore the build →</a></article>
-  </div>
-  <h2>The person behind the projects</h2>
-  <p>I'm ThatCrafter. I have ADHD, and taking useful detours is part of how I work. AI helps me keep track of the ideas, unfinished tasks, and next steps so I can keep moving forward.</p>
-  <a href="/about/">Read my story →</a>
-  <h2>Learning along the way</h2>
-  <p>We are documenting how AI supports the research, planning, troubleshooting, and publishing process. Beginner guides will be published as each workflow is verified.</p>
-  <a href="/learn-ai/">Explore the AI learning section →</a>
+<BaseLayout title="Mopar Restoration Garage | Cuda & Classic Dodge Builds">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Mopar Restoration Garage / Featured Project</p>
+      <h1 id="hero-title">Bringing a <span>1973 Plymouth ’Cuda</span> back to life.</h1>
+      <p class="lead">Real garage work. Real setbacks. Real progress. Follow the restoration, two classic Dodge trucks, and the AI tools helping document every chapter.</p>
+      <div class="actions">
+        <a class="button primary" href="/builds/">Explore the builds <span aria-hidden="true">↗</span></a>
+        <a class="button secondary" href="/videos/">Watch garage videos <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="hero-media" role="img" aria-label="Reserved space for a photograph of the 1973 Plymouth Cuda. Photograph coming soon.">
+      <div class="hero-graphic"><span>’73</span><small>PLYMOUTH CUDA</small></div>
+      <div class="photo-note">PROJECT PHOTO COMING SOON</div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="projects-title">
+    <div class="section-heading">
+      <div><p class="eyebrow">In the garage</p><h2 id="projects-title">Three builds. One garage.</h2></div>
+      <a href="/builds/" class="text-link">All projects →</a>
+    </div>
+    <div class="project-grid">
+      <article class="project-card"><div class="project-art cuda"><span>01 / FEATURED</span><strong>’73</strong></div><div class="card-copy"><p class="eyebrow">Plymouth</p><h3>1973 ’Cuda</h3><p>Full restoration journey, from teardown to the road.</p><a href="/builds/">View project →</a></div></article>
+      <article class="project-card"><div class="project-art d100"><span>02 / TRUCK BUILD</span><strong>’57</strong></div><div class="card-copy"><p class="eyebrow">Dodge</p><h3>1957 D100</h3><p>Vintage pickup work and ongoing progress.</p><a href="/builds/">View project →</a></div></article>
+      <article class="project-card"><div class="project-art w100"><span>03 / TRUCK BUILD</span><strong>’74</strong></div><div class="card-copy"><p class="eyebrow">Dodge</p><h3>1974 W100</h3><p>Mechanical repairs, fabrication, and updates.</p><a href="/builds/">View project →</a></div></article>
+    </div>
+  </section>
+
+  <section class="lower-grid">
+    <article class="feature-panel">
+      <p class="eyebrow">Latest from the shop</p>
+      <h2>Progress, as it happens.</h2>
+      <p>Restoration updates and selected work-session recordings will appear here as they're published. No live garage camera is connected.</p>
+      <a class="text-link" href="/videos/">See the video section →</a>
+    </article>
+    <article class="feature-panel dark-panel">
+      <p class="eyebrow">Learn with the project</p>
+      <h2>Building with AI — openly.</h2>
+      <p>Follow the actual prompts, decisions, errors, and tested solutions behind this website and the restoration documentation.</p>
+      <a class="text-link" href="/learn-ai/">Explore AI tutorials →</a>
+    </article>
+  </section>
+
+  <section class="about-panel">
+    <div><p class="eyebrow">Behind the builds</p><h2>Meet ThatCrafter</h2><p>I'm ThatCrafter. I have ADHD, and taking useful detours is part of how I work. AI helps me track ideas, unfinished tasks, and next steps so I can keep moving forward.</p></div>
+    <a class="button secondary" href="/about/">Read my story →</a>
+  </section>
 </BaseLayout>
+
+<style>
+  .hero{display:grid;grid-template-columns:1.08fr 1fr;gap:0;min-height:490px;background:#191e21;border:1px solid #363d41;border-radius:20px;overflow:hidden;margin:1rem 0 4.5rem;box-shadow:0 24px 65px #0003}
+  .hero-copy{padding:clamp(2rem,4vw,4.4rem);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+  h1{font-size:clamp(2.6rem,4.7vw,5rem);line-height:1.06;margin:.7rem 0 1.4rem;letter-spacing:-.055em}
+  h1 span{color:#ff802c}
+  .lead{font-size:1.1rem;color:#c4cccf;line-height:1.7;max-width:37rem}
+  .actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+  .button{padding:.88rem 1.1rem;border-radius:9px;font-weight:750;text-decoration:none;display:inline-flex;gap:.8rem;align-items:center}
+  .primary{background:#f47727;color:#151515}.primary:hover{background:#ff964f}
+  .secondary{border:1px solid #657078;color:#fff}.secondary:hover{border-color:#f47727}
+  .hero-media{background:radial-gradient(ellipse at 70% 30%,#814119 0%,transparent 55%),linear-gradient(145deg,#30383c,#171c20 70%);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;min-height:330px;overflow:hidden}
+  .hero-media:before{content:"";position:absolute;width:145%;height:85px;transform:rotate(-25deg);background:linear-gradient(90deg,transparent,#f477272d,transparent);border-top:1px solid #ff832d36;border-bottom:1px solid #ff832d36}
+  .hero-graphic{position:relative;display:flex;flex-direction:column;align-items:center;text-shadow:0 12px 30px #0008}
+  .hero-graphic span{font-size:clamp(8rem,15vw,15rem);font-weight:900;color:#ff802c;line-height:1;letter-spacing:-.1em;transform:skew(-8deg)}
+  .hero-graphic small{font-weight:800;letter-spacing:.4em;color:#f4dbca}
+  .photo-note{position:absolute;bottom:1.2rem;right:1.3rem;color:#ebc1a7;font-size:.7rem;letter-spacing:.14em}
+  .eyebrow{color:#ff944e}
+  .section{margin-bottom:3rem}
+  .section-heading{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}
+  h2{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.2;margin:.25rem 0}
+  h3{font-size:1.45rem;margin:.35rem 0}
+  .text-link{color:#ff954c;text-decoration:none;font-weight:700}
+  .project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+  .project-card{border:1px solid #3b444a;background:#20262a;border-radius:14px;overflow:hidden}
+  .project-art{height:170px;display:flex;align-items:flex-end;justify-content:space-between;padding:1.15rem;background:linear-gradient(125deg,#4a3023,#20252a)}
+  .project-art span{font-size:.72rem;letter-spacing:.13em;color:#f6cdb4;font-weight:750}
+  .project-art strong{font-size:5rem;line-height:.9;letter-spacing:-.09em;color:#ff8938}
+  .d100{background:linear-gradient(125deg,#343d44,#1b2127)}.d100 strong{color:#bec9d0}
+  .w100{background:linear-gradient(125deg,#4c4034,#1c252b)}.w100 strong{color:#d9ae76}
+  .card-copy{padding:1.35rem}.card-copy p:not(.eyebrow){color:#bfc7cb;line-height:1.6;min-height:3.1rem}
+  .card-copy a{font-weight:700;text-decoration:none;color:#ff954c}
+  .lower-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:3.7rem 0}
+  .feature-panel{background:#292d30;padding:2rem;border-radius:14px;border:1px solid #45494d}
+  .dark-panel{background:#1b2226}
+  .feature-panel p:not(.eyebrow),.about-panel p:not(.eyebrow){color:#c0c8cb;line-height:1.7}
+  .about-panel{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;border-top:1px solid #444d51;padding:2rem 0}
+  .about-panel > div{max-width:650px}
+  @media(max-width:790px){.hero{grid-template-columns:1fr}.hero-media{min-height:240px;order:-1}.hero-graphic span{font-size:8rem}.project-grid{grid-template-columns:1fr}.lower-grid{grid-template-columns:1fr}.about-panel{display:block}.about-panel .button{margin-top:1rem}}
+  @media(max-width:430px){.hero-copy{padding:1.4rem}.actions{width:100%}.button{justify-content:center}.section-heading{align-items:start}}
+</style>

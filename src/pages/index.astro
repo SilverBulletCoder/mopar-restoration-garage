@@ -12,9 +12,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a class="button secondary" href="/videos/">Watch garage videos <span aria-hidden="true">→</span></a>
       </div>
     </div>
-    <div class="hero-media" role="img" aria-label="Reserved space for a photograph of the 1973 Plymouth Cuda. Photograph coming soon.">
-      <div class="hero-graphic"><span>’73</span><small>PLYMOUTH CUDA</small></div>
-      <div class="photo-note">PROJECT PHOTO COMING SOON</div>
+    <div class="hero-media">
+      <img
+        class="hero-photo"
+        src="/media/1973-cuda/front-driver.jpg"
+        alt="1973 Plymouth Cuda restoration project viewed from the front driver side"
+        width="960"
+        height="720"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="photo-note">1973 PLYMOUTH ’CUDA / STARTING CONDITION</div>
     </div>
   </section>
 
@@ -24,7 +32,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <a href="/builds/" class="text-link">All projects →</a>
     </div>
     <div class="project-grid">
-      <article class="project-card"><div class="project-art cuda"><span>01 / FEATURED</span><strong>’73</strong></div><div class="card-copy"><p class="eyebrow">Plymouth</p><h3>1973 ’Cuda</h3><p>Full restoration journey, from teardown to the road.</p><a href="/builds/">View project →</a></div></article>
+      <article class="project-card"><div class="project-art cuda"><img src="/media/1973-cuda/front-driver.jpg" alt="" width="960" height="720" loading="lazy" /><span>01 / FEATURED</span></div><div class="card-copy"><p class="eyebrow">Plymouth</p><h3>1973 ’Cuda</h3><p>Full restoration journey, from teardown to the road.</p><a href="/builds/">View project →</a></div></article>
       <article class="project-card"><div class="project-art d100"><span>02 / TRUCK BUILD</span><strong>’57</strong></div><div class="card-copy"><p class="eyebrow">Dodge</p><h3>1957 D100</h3><p>Vintage pickup work and ongoing progress.</p><a href="/builds/">View project →</a></div></article>
       <article class="project-card"><div class="project-art w100"><span>03 / TRUCK BUILD</span><strong>’74</strong></div><div class="card-copy"><p class="eyebrow">Dodge</p><h3>1974 W100</h3><p>Mechanical repairs, fabrication, and updates.</p><a href="/builds/">View project →</a></div></article>
     </div>
@@ -61,12 +69,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .button{padding:.88rem 1.1rem;border-radius:9px;font-weight:750;text-decoration:none;display:inline-flex;gap:.8rem;align-items:center}
   .primary{background:#f47727;color:#151515}.primary:hover{background:#ff964f}
   .secondary{border:1px solid #657078;color:#fff}.secondary:hover{border-color:#f47727}
-  .hero-media{background:radial-gradient(ellipse at 70% 30%,#814119 0%,transparent 55%),linear-gradient(145deg,#30383c,#171c20 70%);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;min-height:330px;overflow:hidden}
-  .hero-media:before{content:"";position:absolute;width:145%;height:85px;transform:rotate(-25deg);background:linear-gradient(90deg,transparent,#f477272d,transparent);border-top:1px solid #ff832d36;border-bottom:1px solid #ff832d36}
-  .hero-graphic{position:relative;display:flex;flex-direction:column;align-items:center;text-shadow:0 12px 30px #0008}
-  .hero-graphic span{font-size:clamp(8rem,15vw,15rem);font-weight:900;color:#ff802c;line-height:1;letter-spacing:-.1em;transform:skew(-8deg)}
-  .hero-graphic small{font-weight:800;letter-spacing:.4em;color:#f4dbca}
-  .photo-note{position:absolute;bottom:1.2rem;right:1.3rem;color:#ebc1a7;font-size:.7rem;letter-spacing:.14em}
+  .hero-media{background:#171c20;position:relative;min-height:330px;overflow:hidden}
+  .hero-photo{width:100%;height:100%;min-height:330px;display:block;object-fit:cover;object-position:50% 55%}
+  .hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 56%,#111b 100%);pointer-events:none}
+  .photo-note{position:absolute;z-index:1;bottom:1.2rem;right:1.3rem;color:#fff;font-size:.7rem;font-weight:750;letter-spacing:.14em;text-shadow:0 2px 8px #000}
   .eyebrow{color:#ff944e}
   .section{margin-bottom:3rem}
   .section-heading{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}
@@ -75,8 +81,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .text-link{color:#ff954c;text-decoration:none;font-weight:700}
   .project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
   .project-card{border:1px solid #3b444a;background:#20262a;border-radius:14px;overflow:hidden}
-  .project-art{height:170px;display:flex;align-items:flex-end;justify-content:space-between;padding:1.15rem;background:linear-gradient(125deg,#4a3023,#20252a)}
-  .project-art span{font-size:.72rem;letter-spacing:.13em;color:#f6cdb4;font-weight:750}
+  .project-art{height:170px;display:flex;align-items:flex-end;justify-content:space-between;padding:1.15rem;background:linear-gradient(125deg,#4a3023,#20252a);position:relative;overflow:hidden}
+  .project-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+  .project-art.cuda:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,#101214d9 100%)}
+  .project-art span{position:relative;z-index:1;font-size:.72rem;letter-spacing:.13em;color:#f6cdb4;font-weight:750}
   .project-art strong{font-size:5rem;line-height:.9;letter-spacing:-.09em;color:#ff8938}
   .d100{background:linear-gradient(125deg,#343d44,#1b2127)}.d100 strong{color:#bec9d0}
   .w100{background:linear-gradient(125deg,#4c4034,#1c252b)}.w100 strong{color:#d9ae76}
@@ -88,6 +96,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .feature-panel p:not(.eyebrow),.about-panel p:not(.eyebrow){color:#c0c8cb;line-height:1.7}
   .about-panel{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;border-top:1px solid #444d51;padding:2rem 0}
   .about-panel > div{max-width:650px}
-  @media(max-width:790px){.hero{grid-template-columns:1fr}.hero-media{min-height:240px;order:-1}.hero-graphic span{font-size:8rem}.project-grid{grid-template-columns:1fr}.lower-grid{grid-template-columns:1fr}.about-panel{display:block}.about-panel .button{margin-top:1rem}}
+  @media(max-width:790px){.hero{grid-template-columns:1fr}.hero-media,.hero-photo{min-height:240px}.hero-media{order:-1}.project-grid{grid-template-columns:1fr}.lower-grid{grid-template-columns:1fr}.about-panel{display:block}.about-panel .button{margin-top:1rem}}
   @media(max-width:430px){.hero-copy{padding:1.4rem}.actions{width:100%}.button{justify-content:center}.section-heading{align-items:start}}
 </style>

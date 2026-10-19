@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const truckPhotos = [
+  {
+    src: '/media/1974-w100/main.jpg',
+    alt: '1974 Dodge W100 viewed from the front driver side in its starting condition',
+    caption: '1974 Dodge W100 as found, before restoration work began.',
+    featured: true,
+  },
+  {
+    src: '/media/1974-w100/passenger-front.jpg',
+    alt: '1974 Dodge W100 viewed from the passenger-side front',
+    caption: 'Passenger-side front view showing the truck’s starting condition.',
+  },
+  {
+    src: '/media/1974-w100/cab-through-driver-door.jpg',
+    alt: 'Interior of the 1974 Dodge W100 viewed through the driver-side opening',
+    caption: 'Cab interior as found, viewed through the driver-side opening.',
+  },
+  {
+    src: '/media/1974-w100/under-hood.jpg',
+    alt: 'Engine bay of the 1974 Dodge W100 with the hood open',
+    caption: 'Engine bay as found before cleanup and mechanical work.',
+  },
+  {
+    src: '/media/1974-w100/driver-tailgate.jpg',
+    alt: 'Rear view of the 1974 Dodge W100 bed and tailgate area',
+    caption: 'Rear view of the bed and tailgate area as found.',
+  },
+  {
+    src: '/media/1974-w100/driver-bed-fender.jpg',
+    alt: 'Driver-side bed and rear wheel opening of the 1974 Dodge W100 showing rust damage',
+    caption: 'Driver-side bed and rear wheel opening showing significant rust damage.',
+  },
+];
+
+const partsPhotos = [
+  {
+    src: '/media/1974-w100/parts-truck-interior.jpg',
+    alt: 'Interior and bench seat of the W100 parts truck',
+    caption: 'Parts-truck interior and bench seat.',
+  },
+  {
+    src: '/media/1974-w100/parts-truck-floor-1.jpg',
+    alt: 'Close-up of the W100 parts-truck floor condition',
+    caption: 'Parts-truck floor condition, close-up.',
+  },
+  {
+    src: '/media/1974-w100/parts-truck-floor-2.jpg',
+    alt: 'Additional view of the W100 parts-truck floor and surrounding interior',
+    caption: 'Additional view of the parts-truck floor and surrounding interior.',
+  },
+  {
+    src: '/media/1974-w100/replacement-cab.jpg',
+    alt: 'Replacement cab acquired for the 1974 Dodge W100 project',
+    caption: 'Replacement cab acquired for the W100 project.',
+  },
+  {
+    src: '/media/1974-w100/replacement-cab-back.jpg',
+    alt: 'Rear panel of the replacement W100 cab',
+    caption: 'Rear panel of the replacement cab.',
+  },
+  {
+    src: '/media/1974-w100/replacement-cab-roof.jpg',
+    alt: 'Roof of the replacement W100 cab showing rust and damage',
+    caption: 'Replacement cab roof showing rust and damage to repair.',
+  },
+];
+---
+<BaseLayout
+  title="1974 Dodge W100 | Mopar Restoration Garage"
+  description="Follow the 1974 Dodge W100 restoration project, including mechanical work, fabrication, photos, and progress updates."
+>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/builds/">Builds</a>
+    <span aria-hidden="true">/</span>
+    <span>1974 W100</span>
+  </nav>
+
+  <section class="project-hero">
+    <p class="eyebrow">Dodge truck project</p>
+    <h1>1974 Dodge W100</h1>
+    <p class="lead">Mechanical repairs, fabrication, and updates from the ongoing project.</p>
+  </section>
+
+  <section class="project-section" aria-labelledby="truck-gallery-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Starting condition</p>
+        <h2 id="truck-gallery-title">The W100 as found</h2>
+      </div>
+      <p class="section-note">Documenting the truck before teardown and repair work.</p>
+    </div>
+
+    <div class="gallery-grid">
+      {truckPhotos.map((photo) => (
+        <figure class:list={['gallery-card', { featured: photo.featured }]}>
+          <img src={photo.src} alt={photo.alt} loading={photo.featured ? 'eager' : 'lazy'} />
+          <figcaption>{photo.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="project-section" aria-labelledby="parts-gallery-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Donor pieces & repair material</p>
+        <h2 id="parts-gallery-title">Parts truck & replacement cab</h2>
+      </div>
+      <p class="section-note">Reference photos of the extra pieces available for the project.</p>
+    </div>
+
+    <div class="gallery-grid">
+      {partsPhotos.map((photo) => (
+        <figure class="gallery-card">
+          <img src={photo.src} alt={photo.alt} loading="lazy" />
+          <figcaption>{photo.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <p class="back-link"><a href="/">← Back to home</a></p>
+</BaseLayout>
+
+<style>
+  .breadcrumb{display:flex;gap:.55rem;align-items:center;margin:1rem 0 2.25rem;color:#9fa9ae;font-size:.9rem}
+  .breadcrumb a{color:#ff954c;text-decoration:none;font-weight:700}
+  .project-hero{padding:clamp(2rem,5vw,4.5rem);background:linear-gradient(135deg,#4c4034,#1c252b 62%);border:1px solid #3f474c;border-radius:20px;box-shadow:0 24px 65px #0003;margin-bottom:3rem}
+  h1{font-size:clamp(2.8rem,6vw,5.4rem);line-height:1.02;letter-spacing:-.055em;margin:.55rem 0 1rem}
+  .lead{max-width:42rem;color:#c5cdcf;font-size:1.12rem;line-height:1.7}
+  .project-section{margin:0 0 4rem}
+  .section-heading{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1.25rem}
+  .section-heading>div{min-width:0}
+  .section-note{max-width:30rem;color:#9fa9ae;line-height:1.55;margin:0;text-align:right}
+  h2{font-size:clamp(1.8rem,3vw,2.5rem);margin:.2rem 0}
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+  .gallery-card{margin:0;background:#20262a;border:1px solid #3b444a;border-radius:14px;overflow:hidden}
+  .gallery-card.featured{grid-column:span 2;grid-row:span 2}
+  .gallery-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#15191c}
+  .gallery-card.featured img{height:100%;min-height:390px;aspect-ratio:auto}
+  .gallery-card figcaption{padding:1rem 1.05rem 1.15rem;color:#c4cccf;line-height:1.5;font-size:.94rem}
+  .gallery-card.featured figcaption{font-size:1rem;color:#e0e5e7}
+  .back-link a{color:#ff954c;text-decoration:none;font-weight:700}
+  @media(max-width:900px){
+    .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .gallery-card.featured{grid-column:span 2;grid-row:auto}
+    .gallery-card.featured img{min-height:0;aspect-ratio:4/3}
+  }
+  @media(max-width:640px){
+    .section-heading{display:block}
+    .section-note{text-align:left;margin-top:.65rem}
+    .gallery-grid{grid-template-columns:1fr}
+    .gallery-card.featured{grid-column:auto}
+  }
+</style>

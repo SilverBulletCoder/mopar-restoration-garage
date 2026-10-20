@@ -32,9 +32,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <a href="/builds/" class="text-link">All projects →</a>
     </div>
     <div class="project-grid">
-      <article class="project-card"><div class="project-art cuda"><img src="/media/1973-cuda/front-driver.jpg" alt="" width="960" height="720" loading="lazy" /><span>01 / FEATURED</span></div><div class="card-copy"><p class="eyebrow">Plymouth</p><h3>1973 ’Cuda</h3><p>Full restoration journey, from teardown to the road.</p><a href="/builds/">View project →</a></div></article>
-      <article class="project-card"><div class="project-art d100"><span>02 / TRUCK BUILD</span><strong>’57</strong></div><div class="card-copy"><p class="eyebrow">Dodge</p><h3>1957 D100</h3><p>Vintage pickup work and ongoing progress.</p><a href="/builds/">View project →</a></div></article>
-      <article class="project-card"><div class="project-art w100"><span>03 / TRUCK BUILD</span><strong>’74</strong></div><div class="card-copy"><p class="eyebrow">Dodge</p><h3>1974 W100</h3><p>Mechanical repairs, fabrication, and updates.</p><a href="/builds/">View project →</a></div></article>
+      <article class="project-card"><div class="project-art cuda"><img src="/media/1973-cuda/front-driver.jpg" alt="" width="960" height="720" loading="lazy" /><span>01 / FEATURED</span></div><div class="card-copy"><p class="eyebrow">Plymouth</p><h3>1973 ’Cuda</h3><p>Full restoration journey, from teardown to the road.</p><a href="/builds/1973-cuda/">View project →</a></div></article>
+      <article class="project-card"><div class="project-art d100"><img src="/media/1957-d100/bringing-home.jpg" alt="" width="960" height="720" loading="lazy" /><span>02 / TRUCK BUILD</span></div><div class="card-copy"><p class="eyebrow">Dodge</p><h3>1957 D100</h3><p>Vintage pickup work and ongoing progress.</p><a href="/builds/1957-d100/">View project →</a></div></article>
+      <article class="project-card"><div class="project-art w100"><img src="/media/1974-w100/main.jpg" alt="" width="960" height="720" loading="lazy" /><span>03 / TRUCK BUILD</span></div><div class="card-copy"><p class="eyebrow">Dodge</p><h3>1974 W100</h3><p>Mechanical repairs, fabrication, and updates.</p><a href="/builds/1974-w100/">View project →</a></div></article>
     </div>
   </section>
 
@@ -83,7 +83,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .project-card{border:1px solid #3b444a;background:#20262a;border-radius:14px;overflow:hidden}
   .project-art{height:170px;display:flex;align-items:flex-end;justify-content:space-between;padding:1.15rem;background:linear-gradient(125deg,#4a3023,#20252a);position:relative;overflow:hidden}
   .project-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
-  .project-art.cuda:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,#101214d9 100%)}
+  .project-art.cuda:after,.project-art.d100:after,.project-art.w100:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,#101214d9 100%)}
   .project-art span{position:relative;z-index:1;font-size:.72rem;letter-spacing:.13em;color:#f6cdb4;font-weight:750}
   .project-art strong{font-size:5rem;line-height:.9;letter-spacing:-.09em;color:#ff8938}
   .d100{background:linear-gradient(125deg,#343d44,#1b2127)}.d100 strong{color:#bec9d0}

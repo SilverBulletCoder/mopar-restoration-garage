@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const categories = [
+  {
+    title: 'Welding & Fabrication',
+    description: 'Welders, clamps, fabrication fixtures, and metalworking equipment used during structural and sheet-metal repairs.'
+  },
+  {
+    title: 'Body & Sheet Metal',
+    description: 'Hammers, dollies, panel tools, seam tools, and equipment used to shape and repair body panels.'
+  },
+  {
+    title: 'Cutting & Grinding',
+    description: 'Cutoff tools, grinders, abrasives, and related tools used to remove, trim, and prepare metal.'
+  },
+  {
+    title: 'Lifting & Vehicle Support',
+    description: 'Jacks, stands, dollies, rotisserie equipment, and other tools used to safely support the projects.'
+  },
+  {
+    title: 'Hand Tools',
+    description: 'The everyday sockets, wrenches, pliers, screwdrivers, and specialty hand tools that keep the work moving.'
+  },
+  {
+    title: 'Power Tools',
+    description: 'Corded, cordless, pneumatic, and shop power tools used throughout the restoration work.'
+  },
+  {
+    title: 'Measuring & Layout',
+    description: 'Measuring, alignment, marking, and layout tools used to keep fabrication and assembly accurate.'
+  },
+  {
+    title: 'Paint & Surface Preparation',
+    description: 'Sanders, blasting and cleaning equipment, masking tools, and other preparation gear used before coatings.'
+  },
+  {
+    title: 'Safety & PPE',
+    description: 'Helmets, gloves, eye and hearing protection, respirators, and other equipment used to work safely in the garage.'
+  },
+  {
+    title: 'Specialty / Restoration Tools',
+    description: 'Purpose-built automotive and restoration tools that do not fit neatly into the general shop categories.'
+  }
+];
+---
+
+<BaseLayout
+  title="Tools | Mopar Restoration Garage"
+  description="Tools and equipment used during the Mopar Restoration Garage projects, organized by garage-work category."
+>
+  <section class="intro">
+    <p class="eyebrow">In the garage</p>
+    <h1>Tools We Actually Use</h1>
+    <p class="lead">
+      A working catalog of the tools and equipment used on the 1973 Plymouth ’Cuda,
+      1957 Dodge D100, and 1974 Dodge W100. As the projects move forward, individual
+      tool entries will include photos, model information, real-world notes, project
+      references, and purchase links when appropriate.
+    </p>
+  </section>
+
+  <nav class="category-nav" aria-label="Tool categories">
+    {categories.map((category) => (
+      <a href={`#${category.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}>
+        {category.title}
+      </a>
+    ))}
+  </nav>
+
+  <div class="category-list">
+    {categories.map((category) => {
+      const id = category.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      return (
+        <section class="tool-category" id={id}>
+          <div class="category-heading">
+            <div>
+              <p class="eyebrow">Tool category</p>
+              <h2>{category.title}</h2>
+            </div>
+            <p>{category.description}</p>
+          </div>
+
+          <div class="tool-grid">
+            {category.title === 'Hand Tools' ? (
+              <article class="tool-card">
+                <a
+                  class="tool-card-link"
+                  href="https://www.harborfreight.com/38-in-drive-sae-and-metric-modular-general-service-socket-set-54-piece-70469.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View the ICON 54-Piece 3/8-inch Drive Modular General Service Set at Harbor Freight"
+                >
+                  <img
+                    class="tool-photo"
+                    src="/media/1973-cuda/icon-m25400-54-piece-socket-set.jpg"
+                    alt="ICON 54-piece 3/8-inch drive modular general service socket set, SAE and metric, in its original box."
+                    loading="lazy"
+                    width="1536"
+                    height="2048"
+                  />
+                  <div class="tool-copy">
+                    <p class="eyebrow">Currently in Use</p>
+                    <h3>ICON 54-Piece 3/8&quot; Drive Modular General Service Set</h3>
+                    <p>SAE and metric shallow and deep sockets, ratchet, extensions, universal joint, and adapters.</p>
+                    <p class="tool-model">Model M25400 · Item 70469</p>
+                    <span class="tool-link-label">View at Harbor Freight →</span>
+                  </div>
+                </a>
+              </article>
+            ) : (
+              <article class="tool-card placeholder">
+                <div class="tool-image" aria-hidden="true">Photo</div>
+                <div class="tool-copy">
+                  <p class="eyebrow">Inventory coming next</p>
+                  <h3>Add the first tool</h3>
+                  <p>Tool name, model, garage notes, project use, and links will appear here.</p>
+                </div>
+              </article>
+            )}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</BaseLayout>
+
+<style>
+  .intro{max-width:780px;margin:1.5rem 0 2.4rem}
+  h1{margin:.45rem 0 1rem;letter-spacing:-.04em}
+  .lead{font-size:1.08rem;line-height:1.75;color:#c2cbce;margin:0}
+  .category-nav{display:flex;flex-wrap:wrap;gap:.65rem;margin:0 0 3rem;padding:1rem;background:#191e21;border:1px solid #363d41;border-radius:14px}
+  .category-nav a{display:inline-block;padding:.65rem .8rem;border:1px solid #465057;border-radius:8px;color:#e7ecee;text-decoration:none;font-size:.9rem;font-weight:700}
+  .category-nav a:hover{border-color:#f47727;color:#ffad75}
+  .category-list{display:grid;gap:1.25rem}
+  .tool-category{scroll-margin-top:1rem;background:#1b2023;border:1px solid #363d41;border-radius:16px;padding:1.5rem}
+  .category-heading{display:grid;grid-template-columns:minmax(220px,.85fr) 1.4fr;gap:2rem;align-items:end;border-bottom:1px solid #394146;padding-bottom:1rem;margin-bottom:1.2rem}
+  .category-heading h2{font-size:clamp(1.5rem,3vw,2.2rem);margin:.25rem 0}
+  .category-heading > p{color:#bcc5c9;line-height:1.65;margin:0}
+  .tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,340px));gap:1rem;justify-content:start;align-items:start}
+  .tool-card{width:100%;max-width:340px;overflow:hidden;border:1px solid #41494e;border-radius:12px;background:#22282c}
+  .tool-card-link{display:block;color:inherit;text-decoration:none;height:100%}
+  .tool-card-link:hover h3,.tool-card-link:hover .tool-link-label{color:#ffad75}
+  .tool-card-link:focus-visible{outline:2px solid #ff954c;outline-offset:-2px}
+  .tool-image{min-height:210px;display:grid;place-items:center;background:linear-gradient(135deg,#30383d,#1b2023);color:#78848a;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:800}
+  .tool-photo{display:block;width:100%;height:210px;object-fit:contain;background:#252b2f;padding:.55rem}
+  .tool-model{font-size:.88rem;font-weight:700;color:#e7ecee!important}
+  .tool-link-label{display:inline-block;margin-top:.8rem;color:#ff954c;font-weight:700}
+  .tool-copy{padding:1.1rem}
+  .tool-copy h3{font-size:1.25rem;margin:.3rem 0 .55rem}
+  .tool-copy p:not(.eyebrow){color:#b9c3c7;line-height:1.6;margin-bottom:.2rem}
+  .placeholder{border-style:dashed}
+  @media(max-width:680px){
+    .category-heading{grid-template-columns:1fr;gap:.4rem}
+    .tool-category{padding:1.15rem}
+    .tool-grid{grid-template-columns:1fr}
+    .tool-card{max-width:none}
+  }
+</style>

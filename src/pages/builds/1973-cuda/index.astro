@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="1973 Plymouth ’Cuda | Mopar Restoration Garage"
+  description="Follow the 1973 Plymouth ’Cuda restoration project, including repair work, fabrication, photos, and progress updates."
+>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/builds/">Builds</a>
+    <span aria-hidden="true">/</span>
+    <span>1973 ’Cuda</span>
+  </nav>
+
+  <section class="project-hero">
+    <p class="eyebrow">Featured restoration project</p>
+    <h1>1973 Plymouth ’Cuda</h1>
+    <p class="lead">Full restoration journey, from teardown to the road.</p>
+  </section>
+
+  <section class="project-section" aria-labelledby="gallery-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Project documentation</p>
+        <h2 id="gallery-title">Photo gallery</h2>
+      </div>
+    </div>
+
+    <div class="gallery-group pickup-group" aria-labelledby="pickup-title">
+      <div class="group-heading">
+        <p class="eyebrow">Pickup day</p>
+        <h3 id="pickup-title">Bringing the ’Cuda Home</h3>
+      </div>
+
+      <figure class="gallery-card pickup-card">
+        <img
+          src="/media/1973-cuda/drive-home.jpg"
+          alt="1973 Plymouth ’Cuda on a trailer during the drive home after pickup"
+          loading="lazy"
+        />
+        <figcaption>Drive home with the ’73 ’Cuda after pickup.</figcaption>
+      </figure>
+    </div>
+
+    <div class="gallery-group" aria-labelledby="marketplace-title">
+      <div class="group-heading">
+        <p class="eyebrow">Before pickup</p>
+        <h3 id="marketplace-title">Marketplace Listing Photos</h3>
+        <p>These are the original Marketplace photos that documented the ’Cuda and included parts before it came home.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-card">
+          <img
+            src="/media/1973-cuda/marketplace-passenger-side.jpg"
+            alt="Disassembled 1973 Plymouth ’Cuda body and engine bay from the passenger-side front"
+            loading="lazy"
+          />
+          <figcaption>Marketplace listing photo showing the disassembled ’73 ’Cuda body and engine bay before pickup.</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="/media/1973-cuda/marketplace-rear.jpg"
+            alt="Rear view of the stripped 1973 Plymouth ’Cuda body shell"
+            loading="lazy"
+          />
+          <figcaption>Rear view from the original Marketplace listing, showing the stripped tail panel and body shell.</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="/media/1973-cuda/marketplace-firewall.jpg"
+            alt="Firewall and engine bay structure of the 1973 Plymouth ’Cuda"
+            loading="lazy"
+          />
+          <figcaption>Marketplace condition of the firewall and engine bay before the restoration came home.</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="/media/1973-cuda/marketplace-floor-pan.jpg"
+            alt="Interior floor pan condition of the 1973 Plymouth ’Cuda"
+            loading="lazy"
+          />
+          <figcaption>Interior floor condition shown in the Marketplace listing before pickup.</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="/media/1973-cuda/marketplace-rear-seat.jpg"
+            alt="Rear seat and wheelhouse area of the stripped 1973 Plymouth ’Cuda"
+            loading="lazy"
+          />
+          <figcaption>Rear seat and wheelhouse area as shown in the original Marketplace photos.</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="/media/1973-cuda/marketplace-rear-deck.jpg"
+            alt="Rear deck and interior structure of the stripped 1973 Plymouth ’Cuda"
+            loading="lazy"
+          />
+          <figcaption>Rear deck and interior structure photographed while the car was still with the seller.</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="/media/1973-cuda/marketplace-hood-underside.jpg"
+            alt="Underside of the hood included with the 1973 Plymouth ’Cuda"
+            loading="lazy"
+          />
+          <figcaption>Underside of the hood included with the ’Cuda, shown in the Marketplace listing.</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="/media/1973-cuda/marketplace-340-engine.jpg"
+            alt="Numbers-matching 340 engine shown with the 1973 Plymouth ’Cuda"
+            loading="lazy"
+          />
+          <figcaption>The numbers-matching 340 engine shown with the car in the original Marketplace listing.</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="/media/1973-cuda/marketplace-hurst-shifter.jpg"
+            alt="Four-speed Hurst shifter included with the 1973 Plymouth ’Cuda"
+            loading="lazy"
+          />
+          <figcaption>The 4-speed Hurst shifter included with the ’Cuda, photographed before pickup.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <p class="back-link"><a href="/">← Back to home</a></p>
+</BaseLayout>
+
+<style>
+  .breadcrumb{display:flex;gap:.55rem;align-items:center;margin:1rem 0 2.25rem;color:#9fa9ae;font-size:.9rem}
+  .breadcrumb a{color:#ff954c;text-decoration:none;font-weight:700}
+  .project-hero{padding:clamp(2rem,5vw,4.5rem);background:linear-gradient(135deg,#4a3023,#20252a 62%);border:1px solid #3f474c;border-radius:20px;box-shadow:0 24px 65px #0003;margin-bottom:3rem}
+  h1{font-size:clamp(2.8rem,6vw,5.4rem);line-height:1.02;letter-spacing:-.055em;margin:.55rem 0 1rem}
+  .lead{max-width:42rem;color:#c5cdcf;font-size:1.12rem;line-height:1.7}
+  .project-section{margin:0 0 3rem}
+  .section-heading{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1.5rem}
+  h2{font-size:clamp(1.8rem,3vw,2.5rem);margin:.2rem 0}
+  h3{font-size:clamp(1.35rem,2.5vw,1.9rem);margin:.2rem 0 .45rem}
+  .gallery-group{margin-top:2rem}
+  .gallery-group + .gallery-group{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid #343c41}
+  .group-heading{margin-bottom:1.15rem}
+  .group-heading p:last-child{max-width:52rem;color:#aeb8bc;line-height:1.65;margin:.35rem 0 0}
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.15rem}
+  .gallery-card{margin:0;background:#20262a;border:1px solid #3f474c;border-radius:14px;overflow:hidden;box-shadow:0 18px 45px #0002}
+  .gallery-card img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:#15191c}
+  .gallery-card figcaption{padding:1rem 1.15rem 1.15rem;color:#c5cdcf;font-size:.98rem;line-height:1.5}
+  .pickup-card img{max-height:760px}
+  .back-link a{color:#ff954c;text-decoration:none;font-weight:700}
+</style>

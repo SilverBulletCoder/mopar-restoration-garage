@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="1957 Dodge D100 | Mopar Restoration Garage"
+  description="Follow the 1957 Dodge D100 project, including repair work, fabrication, photos, and progress updates."
+>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/builds/">Builds</a>
+    <span aria-hidden="true">/</span>
+    <span>1957 D100</span>
+  </nav>
+
+  <section class="project-hero">
+    <p class="eyebrow">Dodge truck project</p>
+    <h1>1957 Dodge D100</h1>
+    <p class="lead">Vintage pickup work and ongoing progress.</p>
+  </section>
+
+  <section class="project-section" aria-labelledby="gallery-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Project documentation</p>
+        <h2 id="gallery-title">Photo gallery</h2>
+      </div>
+    </div>
+    <div class="gallery-group" aria-labelledby="bringing-home-title">
+      <div class="group-heading">
+        <p class="eyebrow">Pickup day</p>
+        <h3 id="bringing-home-title">Bringing Home the ’57 Dodge</h3>
+      </div>
+
+      <figure class="gallery-card">
+        <img
+          src="/media/1957-d100/bringing-home.jpg"
+          alt="1957 Dodge D100 loaded on a trailer for the trip home"
+          loading="lazy"
+        />
+        <figcaption>Bringing home the ’57 Dodge.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <p class="back-link"><a href="/">← Back to home</a></p>
+</BaseLayout>
+
+<style>
+  .breadcrumb{display:flex;gap:.55rem;align-items:center;margin:1rem 0 2.25rem;color:#9fa9ae;font-size:.9rem}
+  .breadcrumb a{color:#ff954c;text-decoration:none;font-weight:700}
+  .project-hero{padding:clamp(2rem,5vw,4.5rem);background:linear-gradient(135deg,#343d44,#1b2127 62%);border:1px solid #3f474c;border-radius:20px;box-shadow:0 24px 65px #0003;margin-bottom:3rem}
+  h1{font-size:clamp(2.8rem,6vw,5.4rem);line-height:1.02;letter-spacing:-.055em;margin:.55rem 0 1rem}
+  .lead{max-width:42rem;color:#c5cdcf;font-size:1.12rem;line-height:1.7}
+  .project-section{margin:0 0 3rem}
+  .section-heading{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1rem}
+  h2{font-size:clamp(1.8rem,3vw,2.5rem);margin:.2rem 0}
+  h3{font-size:clamp(1.35rem,2.5vw,1.9rem);margin:.2rem 0 .45rem}
+  .gallery-group{margin-top:2rem}
+  .group-heading{margin-bottom:1.15rem}
+  .gallery-card{margin:0;background:#20262a;border:1px solid #3f474c;border-radius:14px;overflow:hidden;box-shadow:0 18px 45px #0002}
+  .gallery-card img{display:block;width:100%;height:auto;max-height:760px;object-fit:contain;background:#15191c}
+  .gallery-card figcaption{padding:1rem 1.15rem 1.15rem;color:#c5cdcf;font-size:1rem;line-height:1.5}
+  .back-link a{color:#ff954c;text-decoration:none;font-weight:700}
+</style>

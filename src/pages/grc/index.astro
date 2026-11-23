@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GRCChecklist from '../../components/GRCChecklist.astro';
+---
+<BaseLayout
+  title="General Restoration Checks (GRC) | Mopar Restoration Garage"
+  description="Browse all 235 General Restoration Checks across 18 categories. A reusable checklist for planning, inspection, and responsible vehicle restoration."
+>
+  <nav class="grc-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>GRC master list</span></nav>
+  <p class="eyebrow">Open restoration resource</p>
+  <h1>General Restoration Checks <span class="grc-abbr">(GRC)</span></h1>
+  <p class="grc-lead">A reusable master reference with all 235 restoration checks across 18 categories, for passenger cars, pickups, and other vehicle types. Each check includes its ID, requirements, expected outcome and applicable-vehicle guidance where relevant.</p>
+  <div class="grc-intro">
+    <div>
+      <h2>Use this list for any project.</h2>
+      <p>The master GRC covers both unibody cars and body-on-frame trucks. Some checks are pickup-only, unibody-only, or for optional equipment; those are clearly labeled. Inspect first, mark irrelevant items Not applicable on your vehicle's checklist, and verify model-specific service instructions.</p>
+    </div>
+    <div>
+      <h2>Keep project progress separate.</h2>
+      <p>The master never changes when a vehicle-specific checklist is used. Open the checklist from a vehicle project page to record local progress without changing this reference.</p>
+      <a href="/builds/">Choose a project →</a>
+    </div>
+  </div>
+  <GRCChecklist />
+</BaseLayout>
+<style>
+  .grc-breadcrumb{display:flex;align-items:center;gap:.6rem;color:#aab6bb;font-size:.88rem;margin:1rem 0 2.4rem}
+  .grc-breadcrumb a{color:#ffbd72}
+  h1{font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:-.03em;line-height:1.1;margin:.4rem 0 1rem}
+  .grc-abbr{color:#ffbd72}
+  .grc-lead{max-width:56rem;color:#d1dbde;line-height:1.7;font-size:1.12rem}
+  .grc-intro{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:2.4rem 0}
+  .grc-intro>div{border:1px solid #444e54;border-radius:12px;padding:1.3rem;background:#1f262a}
+  .grc-intro h2{font-size:1.18rem;margin:.1rem 0 .5rem}
+  .grc-intro p{color:#c2ced1;line-height:1.6;margin-bottom:.5rem}
+  .grc-intro a{color:#ffbd72;font-weight:700}
+  @media(max-width:720px){.grc-intro{grid-template-columns:1fr}}
+  @media print{.grc-breadcrumb,.grc-intro{display:none}h1{color:#111}}
+</style>

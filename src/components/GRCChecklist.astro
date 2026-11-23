@@ -1,0 +1,269 @@
+---
+import catalog from '../data/grc.json';
+
+const { vehicle = null } = Astro.props;
+const projectMode = Boolean(vehicle);
+const scope = projectMode ? vehicle.slug : 'master';
+const states = [
+  { value: 'NR', label: 'Not reviewed' },
+  { value: 'IN', label: 'Needs inspection' },
+  { value: 'DO', label: 'Needs work' },
+  { value: 'OK', label: 'Completed / verified' },
+  { value: 'DF', label: 'Deferred' },
+  { value: 'SK', label: 'Skip elective task' },
+  { value: 'NA', label: 'Not applicable' },
+];
+const allTasks = catalog.categories.reduce((count, group) => count + group.tasks.length, 0);
+---
+<div
+  class="grc-root"
+  data-grc-root
+  data-scope={scope}
+  data-project={projectMode ? 'true' : 'false'}
+  data-total={allTasks}
+>
+  <div class="grc-controls" role="search" aria-label="Find restoration checks">
+    <label class="grc-search-label" for="grc-search">Find a check by keyword or ID</label>
+    <input id="grc-search" type="search" placeholder="Try brakes, rust, wiring, MR-03-09…" autocomplete="off" data-grc-search />
+    <button type="button" data-grc-download>Export CSV</button>
+    <button type="button" data-grc-print>Print list</button>
+  </div>
+
+  <div class="grc-summary" aria-live="polite">
+    <p data-grc-results>{allTasks} checks in {catalog.categories.length} categories</p>
+    {projectMode && <p data-grc-progress>Loading this vehicle's local checklist…</p>}
+  </div>
+
+  <details class="grc-index">
+    <summary>Browse all {catalog.categories.length} categories</summary>
+    <nav aria-label="GRC categories">
+      {catalog.categories.map((group) => (
+        <a href={'#grc-' + group.number} data-grc-anchor>
+          {group.number} · {group.title} ({group.tasks.length})
+        </a>
+      ))}
+    </nav>
+  </details>
+
+  {catalog.categories.map((group) => (
+    <section class="grc-category" data-grc-category={group.number} id={'grc-' + group.number} aria-labelledby={'grc-title-' + group.number}>
+      <div class="grc-category-heading">
+        <span class="grc-section-id">{group.number}</span>
+        <div>
+          <h2 id={'grc-title-' + group.number}>{group.title}</h2>
+          <span class="grc-section-count">{group.tasks.length} checks</span>
+        </div>
+      </div>
+
+      <div class="grc-scroll" tabindex="0" role="region" aria-label={group.title + ' checklist'}>
+        <table class="grc-table">
+          <thead>
+            <tr>
+              <th scope="col">Check ID</th>
+              <th scope="col">Task</th>
+              <th scope="col">Requirements to check</th>
+              <th scope="col">Expected outcome</th>
+              {projectMode && <th scope="col">Vehicle status</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {group.tasks.map((task) => (
+              <tr data-grc-row data-text={(task.id + ' ' + task.title + ' ' + task.requirements + ' ' + task.outcome + ' ' + (task.appliesTo || '')).toLowerCase()}>
+                <th scope="row" class="grc-task-id" data-grc-value>{task.id}</th>
+                <td class="grc-task-title"><span data-grc-value>{task.title}</span>{task.appliesTo && <small class="grc-applicability">Applies to: {task.appliesTo}</small>}</td>
+                <td data-grc-value>{task.requirements}</td>
+                <td data-grc-value>{task.outcome}</td>
+                {projectMode && (
+                  <td class="grc-status-col">
+                    <label class="grc-sr-only" for={'grc-status-' + task.id}>Status for {task.id} {task.title}</label>
+                    <select id={'grc-status-' + task.id} data-grc-status data-task-id={task.id} aria-label={'Status for ' + task.id}>
+                      {states.map((state) => <option value={state.value}>{state.label}</option>)}
+                    </select>
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ))}
+
+  <p class="grc-footnote">
+    GRC is a general planning and inspection reference, not a factory repair manual or confirmation that a vehicle is safe to drive.
+    Some checks are limited to pickups, unibody cars, body-on-frame vehicles, or optional equipment; mark them Not applicable when they do not fit your vehicle. Verify factory procedures, specifications, parts and safety requirements before repairs.
+  </p>
+
+  {projectMode && (
+    <div class="grc-local-info">
+      <h2>About your project checklist</h2>
+      <p>Selections are saved only in this browser for this vehicle. They do not modify the master GRC, other projects, the restoration database, or the website for other visitors. Export a CSV to keep your own copy. If you clear browser storage or switch devices, selections may be lost.</p>
+      <button type="button" class="grc-reset" data-grc-reset>Clear this browser's {vehicle.shortName} selections</button>
+    </div>
+  )}
+</div>
+
+<script>
+  const grc = document.querySelector('[data-grc-root]');
+  if (grc) {
+    const scope = grc.getAttribute('data-scope') || 'master';
+    const projectMode = grc.getAttribute('data-project') === 'true';
+    const total = Number(grc.getAttribute('data-total') || 0);
+    const storageKey = 'mopar-grc:' + scope + ':v1';
+    const query = grc.querySelector('[data-grc-search]');
+    const rows = Array.from(grc.querySelectorAll('[data-grc-row]'));
+    const groups = Array.from(grc.querySelectorAll('[data-grc-category]'));
+    const selections = Array.from(grc.querySelectorAll('[data-grc-status]'));
+    const resultText = grc.querySelector('[data-grc-results]');
+    const progressText = grc.querySelector('[data-grc-progress]');
+    const validStates = new Set(['NR', 'IN', 'DO', 'OK', 'DF', 'SK', 'NA']);
+
+    function saveSelections() {
+      if (!projectMode) return;
+      const values = {};
+      for (const select of selections) {
+        if (select.value !== 'NR') values[select.dataset.taskId] = select.value;
+      }
+      try { localStorage.setItem(storageKey, JSON.stringify(values)); }
+      catch (_) { if (progressText) progressText.textContent = 'Browser storage unavailable. Export CSV to keep changes.'; }
+    }
+
+    function updateProgress() {
+      if (!projectMode || !progressText) return;
+      const changed = selections.filter((select) => select.value !== 'NR').length;
+      const completed = selections.filter((select) => select.value === 'OK').length;
+      progressText.textContent = changed + ' marked · ' + completed + ' marked completed / verified · ' + (total - changed) + ' not reviewed';
+    }
+
+    function applySearch() {
+      const term = query ? query.value.trim().toLowerCase() : '';
+      let visibleCount = 0;
+      for (const group of groups) {
+        let groupCount = 0;
+        for (const row of group.querySelectorAll('[data-grc-row]')) {
+          const show = !term || (row.getAttribute('data-text') || '').includes(term);
+          row.hidden = !show;
+          if (show) { groupCount++; visibleCount++; }
+        }
+        group.hidden = groupCount === 0;
+      }
+      if (resultText) resultText.textContent = visibleCount + ' of ' + total + ' checks shown';
+    }
+
+    if (projectMode) {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+        if (saved && typeof saved === 'object' && !Array.isArray(saved)) {
+          for (const select of selections) {
+            const value = saved[select.dataset.taskId];
+            if (typeof value === 'string' && validStates.has(value)) select.value = value;
+          }
+        }
+      } catch (_) { /* Keep the blank checklist usable if local storage is unavailable. */ }
+      for (const select of selections) select.addEventListener('change', () => { saveSelections(); updateProgress(); });
+      updateProgress();
+    }
+
+    if (query) query.addEventListener('input', applySearch);
+    for (const link of grc.querySelectorAll('[data-grc-anchor]')) {
+      link.addEventListener('click', () => {
+        if (query) query.value = '';
+        applySearch();
+      });
+    }
+
+    const printButton = grc.querySelector('[data-grc-print]');
+    if (printButton) printButton.addEventListener('click', () => window.print());
+
+    const downloadButton = grc.querySelector('[data-grc-download]');
+    if (downloadButton) downloadButton.addEventListener('click', () => {
+      const header = ['Check ID', 'Task', 'Requirements to check', 'Expected outcome'];
+      if (projectMode) header.push('Vehicle status');
+      const csvRows = [header];
+      for (const row of rows) {
+        const cells = Array.from(row.querySelectorAll('[data-grc-value]')).map((cell) => cell.textContent.trim());
+        if (projectMode) {
+          const select = row.querySelector('[data-grc-status]');
+          const option = select && select.selectedOptions[0];
+          cells.push(option ? option.textContent : 'Not reviewed');
+        }
+        csvRows.push(cells);
+      }
+      const csv = '\uFEFF' + csvRows.map((cells) => cells.map((value) => '"' + String(value).replaceAll('"', '""') + '"').join(',')).join('\r\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = projectMode ? 'GRC-' + scope + '.csv' : 'General-Restoration-Checks.csv';
+      document.body.append(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    const resetButton = grc.querySelector('[data-grc-reset]');
+    if (resetButton) resetButton.addEventListener('click', () => {
+      if (!window.confirm('Clear only this vehicle checklist saved in this browser? This does not modify the master GRC.')) return;
+      for (const select of selections) select.value = 'NR';
+      try { localStorage.removeItem(storageKey); } catch (_) { /* Nothing else to reset. */ }
+      updateProgress();
+    });
+
+    applySearch();
+  }
+</script>
+
+<style>
+  .grc-root{margin:2rem 0 3rem}
+  .grc-controls{display:flex;flex-wrap:wrap;align-items:end;gap:.75rem;padding:1rem;background:#1d2428;border:1px solid #3f494e;border-radius:14px}
+  .grc-search-label{flex-basis:100%;font-size:.86rem;font-weight:700;color:#d8e0e3}
+  .grc-controls input{flex:1 1 250px;min-width:160px;background:#10171a;border:1px solid #53616a;color:#fff;border-radius:9px;padding:.77rem .9rem;font:inherit}
+  .grc-controls input:focus,.grc-status-col select:focus{outline:2px solid #ffbd72;outline-offset:2px}
+  .grc-controls button,.grc-reset{background:#313b40;border:1px solid #69767d;border-radius:9px;color:#f8fbfc;padding:.76rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .grc-controls button:hover,.grc-reset:hover{background:#49565d}
+  .grc-summary{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem;color:#cbd6d8;font-size:.92rem}
+  .grc-summary p{margin:.9rem 0}
+  .grc-index{margin:.8rem 0 2rem;padding:1rem 1.1rem;border-radius:12px;border:1px solid #404b50;background:#1d2529}
+  .grc-index summary{cursor:pointer;font-weight:750;color:#ffbd72}
+  .grc-index nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:.75rem;padding-top:1.2rem}
+  .grc-index nav a{display:block;color:#d6e0e3;font-size:.91rem;text-decoration:none;padding:.5rem .6rem;background:#2b3439;border-radius:7px}
+  .grc-index nav a:hover{color:#ffbd72}
+  .grc-category{margin:2.4rem 0;scroll-margin-top:1.5rem}
+  .grc-category-heading{display:flex;align-items:center;gap:1rem;margin-bottom:.8rem}
+  .grc-section-id{display:grid;place-items:center;min-width:3.2rem;height:3.2rem;color:#ffbd72;border:1px solid #66503b;border-radius:10px;background:#282621;font-weight:800;font-size:1.08rem}
+  .grc-category-heading h2{margin:0;font-size:clamp(1.25rem,2.5vw,1.75rem);line-height:1.3}
+  .grc-section-count{font-size:.81rem;color:#b3bec2}
+  .grc-scroll{overflow-x:auto;border-radius:12px;border:1px solid #40494e}
+  .grc-table{border-collapse:collapse;width:100%;min-width:760px;text-align:left;font-size:.9rem;line-height:1.46}
+  .grc-table thead{background:#293339}
+  .grc-table thead th{color:#fff;font-size:.84rem;font-weight:750;white-space:nowrap}
+  .grc-table th,.grc-table td{padding:.85rem .75rem;vertical-align:top;border-bottom:1px solid #394349}
+  .grc-table tbody tr{background:#1d2529}
+  .grc-table tbody tr:nth-child(even){background:#222c30}
+  .grc-table tbody tr:hover{background:#303b40}
+  .grc-table tbody tr:last-child th,.grc-table tbody tr:last-child td{border-bottom:0}
+  .grc-task-id{white-space:nowrap;color:#ffbd72;font-size:.82rem}
+  .grc-task-title{font-weight:700;color:#f4f5f3;min-width:160px}
+  .grc-applicability{display:block;margin-top:.38rem;font-weight:650;font-size:.76rem;line-height:1.4;color:#ffd09b}
+  .grc-table td:not(.grc-task-title){color:#c2cdd1}
+  .grc-status-col{min-width:165px}
+  .grc-status-col select{width:100%;padding:.5rem .35rem;font:inherit;font-size:.85rem;color:#fff;background:#172024;border:1px solid #59676e;border-radius:7px}
+  .grc-sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .grc-root [hidden]{display:none!important}
+  .grc-footnote{color:#c7d0d3;font-size:.91rem;line-height:1.65;padding:1rem 0;border-top:1px solid #3b474d}
+  .grc-local-info{background:#1d2529;border:1px solid #445057;border-radius:12px;padding:1.3rem 1.45rem;margin:1.6rem 0}
+  .grc-local-info h2{margin:0 0 .6rem;font-size:1.2rem}
+  .grc-local-info p{color:#c7d0d3;line-height:1.6}
+  .grc-reset{margin:.4rem 0}
+  @media(max-width:670px){.grc-controls{align-items:stretch}.grc-controls button{flex:1}.grc-summary{display:block}.grc-category-heading{align-items:start}}
+  @media print{
+    .grc-controls,.grc-index,.grc-reset{display:none!important}
+    .grc-root,.grc-table *,.grc-root *{color:#111!important;background:#fff!important;box-shadow:none!important}
+    .grc-category{break-before:page;page-break-before:always}
+    .grc-category:first-of-type{break-before:auto}
+    .grc-scroll{overflow:visible;border:0}
+    .grc-table{min-width:0;font-size:9px}
+    .grc-table th,.grc-table td{border:1px solid #888;padding:.35rem}
+    .grc-root [hidden]{display:table-row!important}
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import GRCChecklist from '../../../../components/GRCChecklist.astro';
+
+export function getStaticPaths() {
+  return [
+    { slug: '1973-cuda', name: '1973 Plymouth ’Cuda', shortName: '’Cuda' },
+    { slug: '1957-d100', name: '1957 Dodge D100', shortName: 'D100' },
+    { slug: '1974-w100', name: '1974 Dodge W100', shortName: 'W100' },
+  ].map((vehicle) => ({
+    params: { vehicle: vehicle.slug },
+    props: { vehicle },
+  }));
+}
+
+const { vehicle } = Astro.props;
+---
+<BaseLayout
+  title={'GRC — ' + vehicle.name + ' | Mopar Restoration Garage'}
+  description={'A separate browser-based General Restoration Checks checklist for the ' + vehicle.name + ', based on the 235-task master GRC.'}
+>
+  <nav class="grc-breadcrumb" aria-label="Breadcrumb">
+    <a href="/builds/">Builds</a><span aria-hidden="true">/</span>
+    <a href={'/builds/' + vehicle.slug + '/'}>{vehicle.shortName}</a><span aria-hidden="true">/</span>
+    <span>GRC</span>
+  </nav>
+  <p class="eyebrow">Vehicle-specific restoration checks</p>
+  <h1>GRC <span class="vehicle-name">{vehicle.name}</span></h1>
+  <p class="grc-lead">Your separate checklist from the universal 235-check GRC. Review tasks for this vehicle's body type and equipment, mark unrelated pickup/unibody/optional checks Not applicable, and leave the shared master unchanged.</p>
+  <div class="grc-project-actions">
+    <a href="/grc/">View unchanged GRC master →</a>
+    <a href={'/builds/' + vehicle.slug + '/'}>Return to {vehicle.shortName} project →</a>
+  </div>
+  <p class="grc-local-warning">This is a personal, browser-only checklist for this vehicle. Its selections do not change the public master or another vehicle's checklist. It is not the official restoration record or proof of completed repairs; export a CSV to retain your selections.</p>
+  <GRCChecklist vehicle={vehicle} />
+</BaseLayout>
+<style>
+  .grc-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;color:#aab6bb;font-size:.88rem;margin:1rem 0 2.25rem}
+  .grc-breadcrumb a{color:#ffbd72}
+  h1{font-size:clamp(2.2rem,5vw,3.7rem);line-height:1.1;letter-spacing:-.03em;margin:.5rem 0 1rem}
+  .vehicle-name{color:#ffbd72}
+  .grc-lead{max-width:56rem;color:#d1dbde;line-height:1.7;font-size:1.12rem}
+  .grc-project-actions{display:flex;flex-wrap:wrap;gap:1.1rem;margin:1.45rem 0}
+  .grc-project-actions a{font-weight:700;text-decoration:none;color:#ffbd72}
+  .grc-local-warning{padding:1rem 1.1rem;border-left:3px solid #ffbd72;background:#20282c;color:#c8d3d6;line-height:1.6}
+  @media print{.grc-breadcrumb,.grc-project-actions,.grc-local-warning{display:none}h1{color:#111}}
+</style>

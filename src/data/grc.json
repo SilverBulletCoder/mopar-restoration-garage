@@ -1,0 +1,1559 @@
+{
+  "title": "General Restoration Checks",
+  "shortName": "GRC",
+  "version": "2026-10-26-universal-vehicle-wording",
+  "source": "Universal Master Restoration Task Catalog — 2026-10-23 private planning draft",
+  "disclaimer": "Universal planning checklist for passenger cars, pickups and other vehicles. Some checks apply only to equipped body styles or systems. Mark not applicable where appropriate; verify model-specific factory instructions and safe procedures before any work.",
+  "categories": [
+    {
+      "number": "00",
+      "title": "Planning, records and project scope",
+      "tasks": [
+        {
+          "id": "MR-00-01",
+          "title": "Define target finish and use",
+          "requirements": "Inspection notes; owner decisions; milestone template",
+          "outcome": "Choose driver-grade, original, custom, or show objectives separately for each vehicle"
+        },
+        {
+          "id": "MR-00-02",
+          "title": "Confirm ownership, title and vehicle identification",
+          "requirements": "Titles, VIN/body/frame identifier references, photographs retained privately",
+          "outcome": "Verify lawful identity and paperwork before investment or publication"
+        },
+        {
+          "id": "MR-00-03",
+          "title": "Identify vehicle and donor component years",
+          "requirements": "Service manuals, casting numbers, tags and measurements",
+          "outcome": "Identify the actual passenger-car body shell or pickup cab, chassis/frame, engine, axles and donor parts before selecting repair procedures."
+        },
+        {
+          "id": "MR-00-04",
+          "title": "Record existing modifications",
+          "requirements": "Photos, measurements and component list",
+          "outcome": "Identify what is changed so stock procedures are not blindly applied"
+        },
+        {
+          "id": "MR-00-05",
+          "title": "Build baseline photo and condition inventory",
+          "requirements": "Camera, measurement reference, notes",
+          "outcome": "Capture current condition of all systems before dismantling"
+        },
+        {
+          "id": "MR-00-06",
+          "title": "Create parts and hardware inventory",
+          "requirements": "Bins, labels, existing parts photographs",
+          "outcome": "Track have/missing/condition for each assembly"
+        },
+        {
+          "id": "MR-00-07",
+          "title": "Select factory and professional source references",
+          "requirements": "Applicable shop and body manuals, component instructions",
+          "outcome": "Link each major repair to verified year/part applicable evidence"
+        },
+        {
+          "id": "MR-00-08",
+          "title": "Prioritize safety, reliability and finish",
+          "requirements": "Triage matrix and inspection findings",
+          "outcome": "Make roadworthiness gates mandatory and cosmetic tasks owner-selectable"
+        },
+        {
+          "id": "MR-00-09",
+          "title": "Plan costs, tool reuse and repair-versus-replace",
+          "requirements": "Budget categories, supplier and tool list",
+          "outcome": "Separate estimated costs, purchases, shared tools and outsourced services"
+        },
+        {
+          "id": "MR-00-10",
+          "title": "Define job verification and documentation",
+          "requirements": "Checklist, measurements, photos and tests",
+          "outcome": "Record completion evidence and lessons; avoid assuming completed from a photo"
+        }
+      ]
+    },
+    {
+      "number": "01",
+      "title": "Workshop readiness and controlled disassembly",
+      "tasks": [
+        {
+          "id": "MR-01-01",
+          "title": "Establish safe lifting and support",
+          "requirements": "Rated hoist/jacks/stands, wheel chocks, firm floor, PPE",
+          "outcome": "Stabilize vehicle and body before any inspection beneath"
+        },
+        {
+          "id": "MR-01-02",
+          "title": "Assess old coatings and environmental hazards",
+          "requirements": "Coating hazard assessment, ventilation, suitable protection",
+          "outcome": "Select controlled methods for old paint, dust, sealants and fluids"
+        },
+        {
+          "id": "MR-01-03",
+          "title": "Prepare fire protection and welding area",
+          "requirements": "Appropriate extinguisher, welding blankets, ventilation, PPE",
+          "outcome": "Separate ignition sources from fuel, wiring and interiors"
+        },
+        {
+          "id": "MR-01-04",
+          "title": "Drain or contain fluids when necessary",
+          "requirements": "Drain pans, absorbents, labeled containers",
+          "outcome": "Capture fluids safely before component removal"
+        },
+        {
+          "id": "MR-01-05",
+          "title": "Plan disassembly sequence",
+          "requirements": "Factory procedures, photos, task dependencies",
+          "outcome": "Avoid removing structural supports without bracing"
+        },
+        {
+          "id": "MR-01-06",
+          "title": "Label wiring, hoses and linkages",
+          "requirements": "Tape labels, tags, reference photos",
+          "outcome": "Record routing, location and connection orientation"
+        },
+        {
+          "id": "MR-01-07",
+          "title": "Bag and index removed hardware",
+          "requirements": "Bags, bins, labels and hardware map",
+          "outcome": "Preserve hardware identity and note missing or unusable fasteners"
+        },
+        {
+          "id": "MR-01-08",
+          "title": "Clean reusable components for inspection",
+          "requirements": "Safe cleaners, brushes, PPE and trays",
+          "outcome": "Remove grime without hiding damage or harming parts"
+        },
+        {
+          "id": "MR-01-09",
+          "title": "Provide weather and debris protection",
+          "requirements": "Covers, masking, shelving and dry storage",
+          "outcome": "Prevent deterioration during long restoration pauses"
+        }
+      ]
+    },
+    {
+      "number": "02",
+      "title": "Chassis, body shell and structural mounting",
+      "tasks": [
+        {
+          "id": "MR-02-01",
+          "title": "Survey frame rails or unibody structure",
+          "requirements": "Lighting, straightedge, lift access, measurements",
+          "outcome": "Inspect rust, distortions, collision repairs and load-bearing areas"
+        },
+        {
+          "id": "MR-02-02",
+          "title": "Measure chassis/body alignment",
+          "requirements": "Factory datum diagrams and measuring equipment",
+          "outcome": "Compare critical diagonals and mounting points before structural work"
+        },
+        {
+          "id": "MR-02-03",
+          "title": "Inspect chassis/unibody crossmembers and attachments",
+          "requirements": "Applicable frame or unibody diagrams, light, inspection tools and mounting references",
+          "outcome": "Identify cracks, corrosion, failed welds or loose fasteners at load-bearing members and attachments."
+        },
+        {
+          "id": "MR-02-04",
+          "title": "Inspect body mounts or structural attachment points",
+          "requirements": "Factory body/chassis diagrams, light, mirror and corrosion-inspection tools",
+          "outcome": "Check separate-frame body/cab mount metal and hardware or the applicable unibody structural attachment points."
+        },
+        {
+          "id": "MR-02-05",
+          "title": "Verify and secure body-to-frame mounts (where fitted)",
+          "requirements": "Correct factory body/cab mounting bolts, isolators, sleeves, washers, supports and torque specifications where applicable",
+          "outcome": "For body-on-frame vehicles, check and secure all required body/cab mounts. For integral unibody vehicles without separate mounts, mark not applicable and inspect structural joints instead.",
+          "appliesTo": "Body-on-frame vehicles"
+        },
+        {
+          "id": "MR-02-06",
+          "title": "Verify body/chassis geometry and panel alignment",
+          "requirements": "Applicable body datum diagrams, measuring tools, and mounting support or shims where specified",
+          "outcome": "Measure critical body openings, door gaps, controls and structural alignment; adjust body-to-frame position only where vehicle design permits."
+        },
+        {
+          "id": "MR-02-07",
+          "title": "Inspect passenger-compartment floors and seat anchors",
+          "requirements": "Work light, underside access, measuring tools and repair materials only if damage is found",
+          "outcome": "Check floors, footwells, seat attachment points and supporting metal for corrosion, weakness or previous repairs."
+        },
+        {
+          "id": "MR-02-08",
+          "title": "Inspect cowl, firewall and upper pillars",
+          "requirements": "Light, mirror, drainage and rust tools",
+          "outcome": "Check for leaks, prior repairs, weakened seams and steering passage condition"
+        },
+        {
+          "id": "MR-02-09",
+          "title": "Inspect roof supports and header structure",
+          "requirements": "Light, mirror and dimension references",
+          "outcome": "Separate surface roof rust from support/header damage"
+        },
+        {
+          "id": "MR-02-10",
+          "title": "Plan structural bracing before cutting",
+          "requirements": "Datum plan, bracing steel, qualified welding plan",
+          "outcome": "Maintain opening/diagonal geometry when removing load-bearing panels"
+        },
+        {
+          "id": "MR-02-11",
+          "title": "Inspect unibody rails, torque boxes and rockers (if applicable)",
+          "requirements": "Factory unibody dimensions, supported chassis, structural measurement tools",
+          "outcome": "For unibody cars, inspect rails, torque boxes, rockers and integral load-bearing body structure; not a separate-frame inspection.",
+          "appliesTo": "Unibody vehicles"
+        },
+        {
+          "id": "MR-02-12",
+          "title": "Inspect front suspension anchors and crossmembers",
+          "requirements": "Factory suspension references, rated support equipment and inspection tools",
+          "outcome": "Inspect front spring hangers, steering/suspension attachment points, K-members or front crossmembers as fitted."
+        },
+        {
+          "id": "MR-02-13",
+          "title": "Inspect rear suspension and axle attachment points",
+          "requirements": "Lighting, alignment references and torque tools",
+          "outcome": "Check applicable spring/shock/control-arm attachments for cracks, corrosion, damage or loose mounts."
+        },
+        {
+          "id": "MR-02-14",
+          "title": "Inspect cargo-area structural supports (bed or trunk)",
+          "requirements": "Cargo floor/bed or trunk references, light, fastener tools where fitted",
+          "outcome": "Confirm pickup bed attachments or trunk/cargo floor supports are sound before carrying cargo."
+        },
+        {
+          "id": "MR-02-15",
+          "title": "Assess donor body/chassis and mixed-year adaptations",
+          "requirements": "Actual body shell or cab, chassis and donor component identification, measurements and qualified fitment references",
+          "outcome": "Verify custom or mixed-year body, frame, steering/control and mounting clearances before permanent assembly or fabrication."
+        }
+      ]
+    },
+    {
+      "number": "03",
+      "title": "Rust survey, structural sheet metal and fabrication",
+      "tasks": [
+        {
+          "id": "MR-03-01",
+          "title": "Map all visible rust and previous repairs",
+          "requirements": "Inspection light, scraper, photographs and notes",
+          "outcome": "Record surface rust, heavy pitting, thinning, perforation separately"
+        },
+        {
+          "id": "MR-03-02",
+          "title": "Inspect roof rust and coating failure",
+          "requirements": "Inspection tools, safe cleaning/abrasives, coating PPE",
+          "outcome": "Determine whether roof needs treatment or sound-metal patching"
+        },
+        {
+          "id": "MR-03-03",
+          "title": "Inspect rear window aperture and flange",
+          "requirements": "Light, mirror, cleaning tools, gasket references",
+          "outcome": "Confirm metal integrity and retaining geometry before rear glass"
+        },
+        {
+          "id": "MR-03-04",
+          "title": "Inspect windshield aperture and header",
+          "requirements": "Light, sealing-flange reference, safe prep tools",
+          "outcome": "Verify metal soundness before gasket/glass installation"
+        },
+        {
+          "id": "MR-03-05",
+          "title": "Inspect rear body corners and passenger-compartment bulkhead",
+          "requirements": "Lighting, access tools, mirror and careful seam inspection",
+          "outcome": "Check pickup cab corners/rear cab wall or passenger-car rear body corners/bulkhead and lower seams, as applicable."
+        },
+        {
+          "id": "MR-03-06",
+          "title": "Inspect rockers, sills and lower pillars",
+          "requirements": "Body diagrams, measurement and inspection tools",
+          "outcome": "Check load path, drains and inner/outer rust"
+        },
+        {
+          "id": "MR-03-07",
+          "title": "Inspect floor pans and lower firewall",
+          "requirements": "Light, underside access, fitment patterns",
+          "outcome": "Identify affected sections and adjacent supports"
+        },
+        {
+          "id": "MR-03-08",
+          "title": "Inspect door skins and bottoms",
+          "requirements": "Trim tools, mirror and cleaning supplies",
+          "outcome": "Inspect internal drains, seam rust and weakened metal"
+        },
+        {
+          "id": "MR-03-09",
+          "title": "Inspect front fenders and inner aprons",
+          "requirements": "Wheel-access tools, light and section references",
+          "outcome": "Locate trapped dirt, rust and mount damage"
+        },
+        {
+          "id": "MR-03-10",
+          "title": "Inspect rear outer panels and wheelhouses",
+          "requirements": "Access to wheelhouses, quarter panels or pickup bedsides; light and rust-inspection tools",
+          "outcome": "Locate corrosion and perforation in the rear wheelhouses and surrounding quarter panels or bedsides."
+        },
+        {
+          "id": "MR-03-11",
+          "title": "Inspect cowl drains and plenum",
+          "requirements": "Drain access/cleaning, mirror, appropriate PPE",
+          "outcome": "Determine leaks and corrosion source before patches"
+        },
+        {
+          "id": "MR-03-12",
+          "title": "Inspect drip rails, seams and gutters",
+          "requirements": "Light, safe coating-removal materials, seam references",
+          "outcome": "Distinguish cosmetic rust from perforated seams"
+        },
+        {
+          "id": "MR-03-13",
+          "title": "Decide repair sections and metal gauge",
+          "requirements": "Cut lines, templates, measured actual thickness and supplier fitment",
+          "outcome": "Use sound steel and correct shape; no filler over perforation"
+        },
+        {
+          "id": "MR-03-14",
+          "title": "Prepare welding coupons and verify setup",
+          "requirements": "Matching steel, welder, wire/gas, PPE and practice pieces",
+          "outcome": "Confirm weld quality off-vehicle before repair welding"
+        },
+        {
+          "id": "MR-03-15",
+          "title": "Fabricate and weld required patches",
+          "requirements": "Templates, clamps, sheet steel, welding tools and PPE as justified",
+          "outcome": "Cut only compromised sections and verify fit/alignment"
+        },
+        {
+          "id": "MR-03-16",
+          "title": "Protect completed repairs and cavities",
+          "requirements": "Compatible primer, seam sealer, cavity protection and PPE",
+          "outcome": "Seal moisture paths and protect inaccessible backs of repaired seams"
+        }
+      ]
+    },
+    {
+      "number": "04",
+      "title": "Cargo area: pickup bed, trunk and rear closures",
+      "tasks": [
+        {
+          "id": "MR-04-01",
+          "title": "Inspect cargo floor (pickup bed or trunk)",
+          "requirements": "Light, safe underside access, straightedge and rust assessment tools",
+          "outcome": "Identify surface corrosion, perforation and weak floor/support metal in the vehicle's cargo area."
+        },
+        {
+          "id": "MR-04-02",
+          "title": "Assess rear wheel-arch and outer body-panel rust",
+          "requirements": "Inspection tools, repair templates and sheet metal only if needed",
+          "outcome": "Map rust at rear wheel openings, inner wheelhouses, pickup bedsides or passenger-car quarter panels."
+        },
+        {
+          "id": "MR-04-03",
+          "title": "Inspect cargo-floor crossmembers and supports",
+          "requirements": "Underside access, light, mounting tools",
+          "outcome": "Check load-carrying bed or trunk floor structures, seams and support attachments."
+        },
+        {
+          "id": "MR-04-04",
+          "title": "Inspect pickup bed-to-frame hardware (pickups only)",
+          "requirements": "Correct pickup bed fasteners, spacers/pads and applicable torque references",
+          "outcome": "On a pickup, verify the cargo bed is securely attached to its chassis; mark not applicable on a vehicle without a separate pickup bed.",
+          "appliesTo": "Pickup trucks"
+        },
+        {
+          "id": "MR-04-05",
+          "title": "Inspect pickup bed front wall and corners (pickups only)",
+          "requirements": "For pickups: straightedge, light and rust-inspection tools",
+          "outcome": "Check pickup bed panel strength, seams and clearance to the passenger cab; not a trunk-floor check.",
+          "appliesTo": "Pickup trucks"
+        },
+        {
+          "id": "MR-04-06",
+          "title": "Inspect pickup bed stake pockets and seams (if fitted)",
+          "requirements": "For beds with stake pockets: light, mirror and cleaning tools",
+          "outcome": "On equipped pickups, inspect water-trapping stake pockets and their body/bed attachment seams.",
+          "appliesTo": "Pickups with stake pockets"
+        },
+        {
+          "id": "MR-04-07",
+          "title": "Inspect tailgate or trunk/decklid hinges and latches",
+          "requirements": "Vehicle-specific hinges, latch/striker, pivots, supports, cables/chains where fitted and adjustment tools",
+          "outcome": "Confirm the tailgate or trunk lid opens safely, closes securely and retains cargo as designed."
+        },
+        {
+          "id": "MR-04-08",
+          "title": "Align cargo box, tailgate or trunk/decklid",
+          "requirements": "Body alignment references, hinge and latch adjustments, fasteners and measuring tools",
+          "outcome": "Verify pickup bed/closure or passenger-car trunk lid panel alignment, clearance and latch engagement."
+        },
+        {
+          "id": "MR-04-09",
+          "title": "Inspect wiring, fuel and exhaust routing below cargo floor",
+          "requirements": "Light, retaining clips, heat protection and correct mounts",
+          "outcome": "Protect wiring and plumbing beneath the pickup bed or passenger-car trunk/cargo floor from abrasion and heat."
+        },
+        {
+          "id": "MR-04-10",
+          "title": "Inspect cargo tie-downs or load anchors (where fitted)",
+          "requirements": "Verified attachment hardware and sound panel backing",
+          "outcome": "On equipped vehicles, verify anchor backing metal and retention hardware before carrying secured loads.",
+          "appliesTo": "Where equipped"
+        },
+        {
+          "id": "MR-04-11",
+          "title": "Inspect trunk wells, drop-offs and extensions (if equipped)",
+          "requirements": "Trunk/cargo well and underside access, inspection and patch tools if required",
+          "outcome": "Inspect trunk well seams, lower quarter-panel extensions and water-entry areas when present.",
+          "appliesTo": "Trunk-equipped vehicles"
+        },
+        {
+          "id": "MR-04-12",
+          "title": "Assess optional cargo-area floor coating or liner",
+          "requirements": "Compatible coating products and surface prep if chosen",
+          "outcome": "Choose optional bedliner or trunk/cargo-floor protection after necessary structural and corrosion repairs.",
+          "appliesTo": "Optional finish"
+        }
+      ]
+    },
+    {
+      "number": "05",
+      "title": "Engine condition, lubrication and ignition",
+      "tasks": [
+        {
+          "id": "MR-05-01",
+          "title": "Identify installed engine and accessory setup",
+          "requirements": "Casting/ID references, manuals and photos",
+          "outcome": "Verify actual engine, mount and accessory compatibility"
+        },
+        {
+          "id": "MR-05-02",
+          "title": "Confirm engine starts, runs and idles",
+          "requirements": "Safe fuel/ignition setup, tachometer and leak observation",
+          "outcome": "Record actual starting, idle and warm-up behavior"
+        },
+        {
+          "id": "MR-05-03",
+          "title": "Inspect external engine leaks and fasteners",
+          "requirements": "Light, cleaning supplies, torque references",
+          "outcome": "Find oil, fuel and coolant leaks and loose mounts"
+        },
+        {
+          "id": "MR-05-04",
+          "title": "Check oil quality, pressure and circulation",
+          "requirements": "Correct oil/filter, pressure gauge and manuals",
+          "outcome": "Verify oil pressure at appropriate temperatures before use"
+        },
+        {
+          "id": "MR-05-05",
+          "title": "Evaluate compression or leak-down if indicated",
+          "requirements": "Compression/leakdown tools and battery support",
+          "outcome": "Test internal condition if symptoms justify teardown"
+        },
+        {
+          "id": "MR-05-06",
+          "title": "Inspect distributor, cap, rotor, plug wires",
+          "requirements": "Ignition tools, replacement components only if worn",
+          "outcome": "Check spark quality, condition and correct routing"
+        },
+        {
+          "id": "MR-05-07",
+          "title": "Inspect spark plugs and firing order",
+          "requirements": "Correct plugs, socket and factory firing-order diagram",
+          "outcome": "Verify gap, heat range and cylinder lead orientation"
+        },
+        {
+          "id": "MR-05-08",
+          "title": "Verify base timing and advance operation",
+          "requirements": "Timing light, vacuum tools and exact engine specs",
+          "outcome": "Correct engine timing using applicable distributor setup"
+        },
+        {
+          "id": "MR-05-09",
+          "title": "Inspect PCV, breather and vacuum system",
+          "requirements": "Hoses, PCV valve, clamps and vacuum diagram",
+          "outcome": "Eliminate vacuum leaks and crankcase restrictions"
+        },
+        {
+          "id": "MR-05-10",
+          "title": "Inspect engine mounts and brackets",
+          "requirements": "Mount inspection, lifting/support tools, bolts if needed",
+          "outcome": "Confirm powertrain retention, fan and driveline clearance"
+        },
+        {
+          "id": "MR-05-11",
+          "title": "Inspect throttle linkage and return springs",
+          "requirements": "Hand tools, return springs, linkage reference",
+          "outcome": "Verify throttle cannot stick and returns reliably"
+        },
+        {
+          "id": "MR-05-12",
+          "title": "Change engine service consumables when warranted",
+          "requirements": "Correct oil, filter, belts, plugs and gasket supplies",
+          "outcome": "Establish reliable maintenance baseline without unnecessary teardown"
+        },
+        {
+          "id": "MR-05-13",
+          "title": "Decide whether full engine rebuild is warranted",
+          "requirements": "Performance tests and symptom log, machine-shop estimate if necessary",
+          "outcome": "Skip overhaul if the existing engine proves serviceable for owner goals"
+        }
+      ]
+    },
+    {
+      "number": "06",
+      "title": "Fuel system, intake and carburetion",
+      "tasks": [
+        {
+          "id": "MR-06-01",
+          "title": "Inspect fuel tank exterior and mounts",
+          "requirements": "Lift access, straps, fasteners, safety PPE",
+          "outcome": "Check rust, leaks, damage and secure retention"
+        },
+        {
+          "id": "MR-06-02",
+          "title": "Inspect tank interior and fuel cleanliness",
+          "requirements": "Safe tank-handling gear, approved inspection method",
+          "outcome": "Decide clean/repair/replace based on actual contamination"
+        },
+        {
+          "id": "MR-06-03",
+          "title": "Verify filler neck, cap and venting",
+          "requirements": "Hoses, cap, sealing parts and model-specific diagrams",
+          "outcome": "Restore safe filling and venting with no leaks"
+        },
+        {
+          "id": "MR-06-04",
+          "title": "Inspect fuel sender and gauge operation",
+          "requirements": "Meter, sender gasket and wiring diagram",
+          "outcome": "Confirm fuel level signal and sealed sender mounting"
+        },
+        {
+          "id": "MR-06-05",
+          "title": "Inspect hard fuel lines and routing",
+          "requirements": "Correct-rated line, flare tools and supports as required",
+          "outcome": "Eliminate pinch points, rust and exhaust contact"
+        },
+        {
+          "id": "MR-06-06",
+          "title": "Replace unsafe flexible fuel hose/clamps",
+          "requirements": "Correct fuel-rated hose and compatible clamps",
+          "outcome": "Avoid degraded or mismatched hose and fuel leaks"
+        },
+        {
+          "id": "MR-06-07",
+          "title": "Inspect fuel pump operation and connections",
+          "requirements": "Pressure test gauge, filter and fittings as needed",
+          "outcome": "Verify safe supply and absence of leaks"
+        },
+        {
+          "id": "MR-06-08",
+          "title": "Inspect fuel filters and debris protection",
+          "requirements": "Correct filter orientation and fittings",
+          "outcome": "Keep contaminants out of pump/carb without unsafe restrictions"
+        },
+        {
+          "id": "MR-06-09",
+          "title": "Inspect carburetor/injection and choke",
+          "requirements": "Rebuild components or gasket set if indicated, tune tools",
+          "outcome": "Verify starting, idle, acceleration and no fuel drips"
+        },
+        {
+          "id": "MR-06-10",
+          "title": "Inspect air cleaner and intake sealing",
+          "requirements": "Correct filter, housing seal, hose routing",
+          "outcome": "Prevent dust ingestion and wrong crankcase ventilation"
+        },
+        {
+          "id": "MR-06-11",
+          "title": "Perform static and running fuel leak checks",
+          "requirements": "Absorbents, safe extinguisher, inspection light",
+          "outcome": "Confirm no leaks before driving or welding"
+        },
+        {
+          "id": "MR-06-12",
+          "title": "Evaluate relocating a vehicle fuel tank (if planned)",
+          "requirements": "Compatible tank and mounts, safe chassis/unibody and cargo-floor clearances, filler, vent, sender, protection and fuel plumbing",
+          "outcome": "Only if a relocation is planned, verify mounting, suspension travel, impact/exhaust/driveline clearance, vent/filler routing and leak integrity before use.",
+          "appliesTo": "Optional modification"
+        },
+        {
+          "id": "MR-06-13",
+          "title": "Evaluate E85 conversion for a carbureted engine (if planned)",
+          "requirements": "Actual carburetor ID, ethanol-rated tank, lines, hoses, seals, pump, filter, flow capacity, tuning requirements and legal/operational feasibility",
+          "outcome": "Only if E85 use is being considered, investigate fuel compatibility, tuning, storage, weather operation, fuel-system capacity and road-use requirements before buying parts.",
+          "appliesTo": "Optional fuel conversion"
+        }
+      ]
+    },
+    {
+      "number": "07",
+      "title": "Cooling, heater plumbing and exhaust",
+      "tasks": [
+        {
+          "id": "MR-07-01",
+          "title": "Inspect radiator and mounting",
+          "requirements": "Radiator inspection, hoses/mount hardware if required",
+          "outcome": "Check core corrosion, leaks, fan clearance and support"
+        },
+        {
+          "id": "MR-07-02",
+          "title": "Inspect coolant hoses and clamps",
+          "requirements": "Correct hose bends, clamps, coolant capture",
+          "outcome": "Replace weak or incorrectly routed hoses"
+        },
+        {
+          "id": "MR-07-03",
+          "title": "Inspect water pump and front drive",
+          "requirements": "Leak/shaft inspection, belts and gasket only as indicated",
+          "outcome": "Verify proper circulation and no bearing play"
+        },
+        {
+          "id": "MR-07-04",
+          "title": "Test thermostat and radiator cap",
+          "requirements": "Correct-rated cap, thermostat and coolant-safe tools",
+          "outcome": "Confirm pressure and temperature regulation"
+        },
+        {
+          "id": "MR-07-05",
+          "title": "Inspect fan, clutch and shroud",
+          "requirements": "Fasteners, blade/guard inspection, correct shroud",
+          "outcome": "Verify safe fan retention and airflow"
+        },
+        {
+          "id": "MR-07-06",
+          "title": "Inspect belts, pulleys and accessory alignment",
+          "requirements": "Belts, straightedge, adjustment tools",
+          "outcome": "Correct slipping, misalignment or fraying"
+        },
+        {
+          "id": "MR-07-07",
+          "title": "Flush/refill cooling system when needed",
+          "requirements": "Appropriate coolant, water, flush method, drain gear",
+          "outcome": "Remove contamination and bleed/verify coolant level"
+        },
+        {
+          "id": "MR-07-08",
+          "title": "Verify operating temperature at idle/load",
+          "requirements": "Thermometer, gauge checks and leak monitoring",
+          "outcome": "Confirm safe temperature rise and recovery"
+        },
+        {
+          "id": "MR-07-09",
+          "title": "Inspect heater core plumbing and shutoff",
+          "requirements": "Heater hoses, clamps and possible heater core",
+          "outcome": "Fix cooling circuit leaks and maintain defrost path"
+        },
+        {
+          "id": "MR-07-10",
+          "title": "Inspect exhaust manifolds and gaskets",
+          "requirements": "Fastener tools, gaskets if leaking and heat protection",
+          "outcome": "Check leaks/cracks and secure exhaust mounting"
+        },
+        {
+          "id": "MR-07-11",
+          "title": "Inspect exhaust pipe, muffler and hangers",
+          "requirements": "Correct pipe, clamps/hangers and lift access",
+          "outcome": "Route exhaust gases safely away from the passenger compartment and fuel system."
+        },
+        {
+          "id": "MR-07-12",
+          "title": "Inspect heat shielding and clearance",
+          "requirements": "Shielding, hanger hardware, light",
+          "outcome": "Protect brake/fuel lines, cargo floor and nearby body/chassis components from exhaust heat."
+        }
+      ]
+    },
+    {
+      "number": "08",
+      "title": "Transmission, driveline, axles and 4×4",
+      "tasks": [
+        {
+          "id": "MR-08-01",
+          "title": "Identify transmission, drive axles and transfer case (if fitted)",
+          "requirements": "ID tags, manuals and photos",
+          "outcome": "Document actual engine-to-axle driveline and any transfer case; do not assume all vehicles have four-wheel drive."
+        },
+        {
+          "id": "MR-08-02",
+          "title": "Inspect transmission mounts and crossmember",
+          "requirements": "Mount pads, bolts, torque tools",
+          "outcome": "Check secure retention and driveline angle"
+        },
+        {
+          "id": "MR-08-03",
+          "title": "Service transmission fluid and leaks as needed",
+          "requirements": "Correct fluid, filters/gaskets as applicable, pan tools",
+          "outcome": "Check level, condition and signs of internal wear"
+        },
+        {
+          "id": "MR-08-04",
+          "title": "Verify shift linkage, indicator and neutral safety",
+          "requirements": "Linkage bushings, wiring diagram and adjustment tools",
+          "outcome": "Confirm selected gear and interlocks match control position"
+        },
+        {
+          "id": "MR-08-05",
+          "title": "Confirm transmission engages and shifts correctly",
+          "requirements": "Safe stands/test plan and operating checks",
+          "outcome": "Record shift behavior but do not treat engagement alone as full health"
+        },
+        {
+          "id": "MR-08-06",
+          "title": "Inspect clutch, linkage and pedal if manual",
+          "requirements": "Cable/rod/hydraulic parts as applicable, adjustment tools",
+          "outcome": "Test release, clutch engagement and no interference",
+          "appliesTo": "Manual transmission"
+        },
+        {
+          "id": "MR-08-07",
+          "title": "Inspect converter, flexplate and starter mesh if automatic",
+          "requirements": "Correct fasteners, access tools and spec reference",
+          "outcome": "Address noises, damage and secure coupling",
+          "appliesTo": "Automatic transmission"
+        },
+        {
+          "id": "MR-08-08",
+          "title": "Inspect transfer case, mounts and seals (4WD only)",
+          "requirements": "Applicable fluid, seals and mounts if required",
+          "outcome": "Verify case securely mounted and serviceable",
+          "appliesTo": "Transfer-case equipped"
+        },
+        {
+          "id": "MR-08-09",
+          "title": "Verify transfer-case range selection (4WD only)",
+          "requirements": "Shift linkage tools, owner manual, safe function check",
+          "outcome": "Differentiate lever movement from actual high/low engagement",
+          "appliesTo": "Transfer-case equipped"
+        },
+        {
+          "id": "MR-08-10",
+          "title": "Inspect 4WD front hubs and axle disconnects (if fitted)",
+          "requirements": "Hub service kit, grease and hand tools as applicable",
+          "outcome": "Verify both front wheel drive paths engage where designed",
+          "appliesTo": "4WD systems as equipped"
+        },
+        {
+          "id": "MR-08-11",
+          "title": "Inspect front driveshaft and joints (if fitted)",
+          "requirements": "Joint inspection, replacement joints, proper tools",
+          "outcome": "Check play, alignment and clearance through articulation",
+          "appliesTo": "If front driveshaft fitted"
+        },
+        {
+          "id": "MR-08-12",
+          "title": "Inspect rear driveshaft and universal joints",
+          "requirements": "Joint service tools, grease and fasteners",
+          "outcome": "Correct play, vibration and unsafe retainers"
+        },
+        {
+          "id": "MR-08-13",
+          "title": "Inspect differentials, housings and axle seals",
+          "requirements": "Correct fluid, seals and lift access",
+          "outcome": "Assess noise, leaks and bearing condition"
+        },
+        {
+          "id": "MR-08-14",
+          "title": "Verify front/rear axle ratio match (4WD only)",
+          "requirements": "Differential tags/rotation count with controlled procedure",
+          "outcome": "Prevent driveline bind on 4x4 configurations",
+          "appliesTo": "Driven front and rear axles"
+        },
+        {
+          "id": "MR-08-15",
+          "title": "Inspect axle wheel bearings and hub retention",
+          "requirements": "Bearing tools, seals, torque and preload procedures",
+          "outcome": "Restore correct bearing condition and adjustments"
+        },
+        {
+          "id": "MR-08-16",
+          "title": "Perform safe driveline and 4WD checks (as applicable)",
+          "requirements": "Controlled test area, correct engagement instructions",
+          "outcome": "Verify safe driveline function on every vehicle, plus transfer-case and 4WD operation only if fitted."
+        }
+      ]
+    },
+    {
+      "number": "09",
+      "title": "Steering and suspension",
+      "tasks": [
+        {
+          "id": "MR-09-01",
+          "title": "Inspect steering column and steering-shaft connection",
+          "requirements": "Correct couplers, fasteners, column support, inspection light",
+          "outcome": "Verify wheel input safely reaches steering gear without binding"
+        },
+        {
+          "id": "MR-09-02",
+          "title": "Inspect steering gear mounting and leakage",
+          "requirements": "Gear fastener/spec references and access tools",
+          "outcome": "Ensure box anchored to sound frame and no excessive play"
+        },
+        {
+          "id": "MR-09-03",
+          "title": "Inspect power-steering pump, hoses and belt if fitted",
+          "requirements": "Correct hoses, fluid and fittings as applicable",
+          "outcome": "Restore safe assist and check leaks"
+        },
+        {
+          "id": "MR-09-04",
+          "title": "Inspect tie rods, drag link and linkage",
+          "requirements": "Joint inspection and replacement parts only if worn",
+          "outcome": "Eliminate dangerous looseness in steering links"
+        },
+        {
+          "id": "MR-09-05",
+          "title": "Inspect kingpins or ball joints as applicable",
+          "requirements": "Correct type-specific inspection tools and wear limits",
+          "outcome": "Verify pivot wear without guessing axle variant"
+        },
+        {
+          "id": "MR-09-06",
+          "title": "Inspect steering stops and steering clearances",
+          "requirements": "Full-lock checks, lift support and clearance reference",
+          "outcome": "Prevent tire, hose or shaft interference"
+        },
+        {
+          "id": "MR-09-07",
+          "title": "Inspect leaf springs and coils as fitted",
+          "requirements": "Spring inspection, rated supports and mount tools",
+          "outcome": "Find cracked leaves, sagging or broken coils"
+        },
+        {
+          "id": "MR-09-08",
+          "title": "Inspect spring bushings, shackles and hangers",
+          "requirements": "Bushings/hardware if worn, torque references",
+          "outcome": "Check attachment integrity and movement"
+        },
+        {
+          "id": "MR-09-09",
+          "title": "Inspect suspension control arms and pivots",
+          "requirements": "Appropriate tools, bushings and ball-joint reference",
+          "outcome": "Verify true installed geometry for each model"
+        },
+        {
+          "id": "MR-09-10",
+          "title": "Inspect shocks and shock mounts",
+          "requirements": "Replacement shocks/hardware as indicated",
+          "outcome": "Find leaks, broken mounts and failed damping"
+        },
+        {
+          "id": "MR-09-11",
+          "title": "Inspect sway bars, links and bump stops if fitted",
+          "requirements": "Bushings, brackets and fasteners if damaged",
+          "outcome": "Verify components don't bind or detach"
+        },
+        {
+          "id": "MR-09-12",
+          "title": "Inspect solid front axle mounts and U-bolts (if fitted)",
+          "requirements": "Axle alignment reference, U-bolt safety and torque procedures",
+          "outcome": "Confirm retention of solid axle where fitted",
+          "appliesTo": "Solid front axle as equipped"
+        },
+        {
+          "id": "MR-09-13",
+          "title": "Measure ride height, alignment and tracking",
+          "requirements": "Alignment equipment or qualified alignment service",
+          "outcome": "Set correct alignment after steering/suspension repairs"
+        },
+        {
+          "id": "MR-09-14",
+          "title": "Perform steering articulation and clearance tests",
+          "requirements": "Jack support, helper, inspection tools",
+          "outcome": "Verify steering controls don't contact the body shell/cab, chassis or fuel and brake lines at full travel."
+        }
+      ]
+    },
+    {
+      "number": "10",
+      "title": "Service brakes and parking brake",
+      "tasks": [
+        {
+          "id": "MR-10-01",
+          "title": "Inspect brake pedal, pivot and mounting",
+          "requirements": "Pedal tools, pivot bushings and bracket access",
+          "outcome": "Confirm pedal returns and mounting metal is sound"
+        },
+        {
+          "id": "MR-10-02",
+          "title": "Inspect master cylinder and reservoir",
+          "requirements": "Correct fluid, bench/line procedure if replacement needed",
+          "outcome": "Check leaks, contamination and proper function"
+        },
+        {
+          "id": "MR-10-03",
+          "title": "Inspect brake booster and vacuum supply if present",
+          "requirements": "Vacuum gauges and hose/booster reference",
+          "outcome": "Verify assist without leaks or unexpected pedal behavior"
+        },
+        {
+          "id": "MR-10-04",
+          "title": "Inspect rigid brake lines and fittings",
+          "requirements": "Correct brake tubing, fittings, flare tools if required",
+          "outcome": "Check corrosion and routing with no leakage"
+        },
+        {
+          "id": "MR-10-05",
+          "title": "Inspect flexible brake hoses and routing",
+          "requirements": "Correct rated hoses, clips, brake fluid",
+          "outcome": "Replace cracked lines and verify full suspension travel"
+        },
+        {
+          "id": "MR-10-06",
+          "title": "Inspect wheel cylinders or brake calipers",
+          "requirements": "Seal/slide inspection and repair kits if indicated",
+          "outcome": "Confirm no leakage, seizure or uneven movement"
+        },
+        {
+          "id": "MR-10-07",
+          "title": "Inspect discs/rotors and drums",
+          "requirements": "Measuring tools, service limits and replacements if needed",
+          "outcome": "Verify usable thickness and condition"
+        },
+        {
+          "id": "MR-10-08",
+          "title": "Inspect pads/shoes, springs and hardware",
+          "requirements": "Friction kit and brake hardware as needed",
+          "outcome": "Verify wear and correct reassembly"
+        },
+        {
+          "id": "MR-10-09",
+          "title": "Inspect adjustment and self-adjusting mechanisms",
+          "requirements": "Correct parts and adjustment tools",
+          "outcome": "Set proper drum adjustment and operation where applicable"
+        },
+        {
+          "id": "MR-10-10",
+          "title": "Inspect parking brake cables, levers and anchors",
+          "requirements": "Cables, brackets and adjustment tools as indicated",
+          "outcome": "Restore independent vehicle holding function"
+        },
+        {
+          "id": "MR-10-11",
+          "title": "Inspect hydraulic distribution/proportioning components",
+          "requirements": "Hydraulic diagrams and leak inspection",
+          "outcome": "Confirm intact circuits and warning function"
+        },
+        {
+          "id": "MR-10-12",
+          "title": "Bleed and pressure-check brake system",
+          "requirements": "Correct brake fluid, bleeding gear and inspection helper",
+          "outcome": "Remove air and verify sustained hydraulic pressure with no leakage"
+        },
+        {
+          "id": "MR-10-13",
+          "title": "Verify stopping, pull, pedal feel and parking hold",
+          "requirements": "Controlled testing and qualified assessment if needed",
+          "outcome": "Do not infer roadworthiness merely because the vehicle stopped once"
+        }
+      ]
+    },
+    {
+      "number": "11",
+      "title": "Wheels and tires",
+      "tasks": [
+        {
+          "id": "MR-11-01",
+          "title": "Identify correct wheel dimensions and load rating",
+          "requirements": "Wheel specs, backspacing and load data",
+          "outcome": "Verify match to hubs, brakes and intended vehicle load"
+        },
+        {
+          "id": "MR-11-02",
+          "title": "Inspect wheel cracks, corrosion and seats",
+          "requirements": "Inspection light, wheel service tools",
+          "outcome": "Reject damaged or incorrect rim/lug seats"
+        },
+        {
+          "id": "MR-11-03",
+          "title": "Inspect tire age, size, condition and load",
+          "requirements": "DOT date, tread tools and manufacturer specs",
+          "outcome": "Replace tires unsafe from age, dry rot or damage"
+        },
+        {
+          "id": "MR-11-04",
+          "title": "Inspect valve stems and inflation retention",
+          "requirements": "Valve tools and tire service as needed",
+          "outcome": "Prevent slow leaks and tire failure"
+        },
+        {
+          "id": "MR-11-05",
+          "title": "Verify studs, nuts and lug engagement",
+          "requirements": "Correct lugs/studs, calibrated torque wrench",
+          "outcome": "Check stud damage and proper wheel retention"
+        },
+        {
+          "id": "MR-11-06",
+          "title": "Balance wheels and assess vibration",
+          "requirements": "Wheel balancing service and inspection",
+          "outcome": "Avoid shaking and abnormal tire wear"
+        },
+        {
+          "id": "MR-11-07",
+          "title": "Verify spare tire, jack and lug tool",
+          "requirements": "Spare, rated jack, holder and wrench",
+          "outcome": "Ensure roadside wheel-change capability"
+        },
+        {
+          "id": "MR-11-08",
+          "title": "Check tire-to-body/frame clearance throughout travel",
+          "requirements": "Steering sweep, ride-height/load assessment",
+          "outcome": "Avoid rubbing on brakes, springs or body edges"
+        }
+      ]
+    },
+    {
+      "number": "12",
+      "title": "Electrical, lighting and instrumentation",
+      "tasks": [
+        {
+          "id": "MR-12-01",
+          "title": "Inspect battery, hold-down and terminals",
+          "requirements": "Correct battery, tray and fasteners as needed",
+          "outcome": "Confirm secure mounting and reliable terminal connection"
+        },
+        {
+          "id": "MR-12-02",
+          "title": "Inspect main cables, engine/frame grounds",
+          "requirements": "Cable, straps, terminals and meter",
+          "outcome": "Restore high-current continuity and avoid heat"
+        },
+        {
+          "id": "MR-12-03",
+          "title": "Inspect starter and start interlock",
+          "requirements": "Starter tests, wiring reference and meter",
+          "outcome": "Verify safe cranking and neutral/clutch safety"
+        },
+        {
+          "id": "MR-12-04",
+          "title": "Inspect alternator, regulator and charging",
+          "requirements": "Meter, load test and belt reference",
+          "outcome": "Confirm charging without overvoltage"
+        },
+        {
+          "id": "MR-12-05",
+          "title": "Inspect ignition switch, coil feed and run circuits",
+          "requirements": "Wiring diagrams, meter and connectors",
+          "outcome": "Verify normal starting and shutdown"
+        },
+        {
+          "id": "MR-12-06",
+          "title": "Inspect harness insulation, routing and repairs",
+          "requirements": "Loom, clips, wire, terminals and diagrams as needed",
+          "outcome": "Remove shorts, unsafe splices and exhaust/edge chafing"
+        },
+        {
+          "id": "MR-12-07",
+          "title": "Inspect fusible links, fuses and protection",
+          "requirements": "Appropriate current-rated replacements and diagrams",
+          "outcome": "No oversized bypass protection"
+        },
+        {
+          "id": "MR-12-08",
+          "title": "Inspect firewall bulkhead connectors",
+          "requirements": "Terminal repair materials, cleaning tools and diagram",
+          "outcome": "Address loose or overheated connections where found"
+        },
+        {
+          "id": "MR-12-09",
+          "title": "Inspect dash cluster and gauge lighting",
+          "requirements": "Lamps, test tools and connectors",
+          "outcome": "Restore accurate and readable instruments"
+        },
+        {
+          "id": "MR-12-10",
+          "title": "Verify oil pressure, coolant and fuel indications",
+          "requirements": "Known reference test tools and sender compatibility",
+          "outcome": "Avoid relying on nonworking gauges while driving"
+        },
+        {
+          "id": "MR-12-11",
+          "title": "Inspect headlamps, tail lamps and running lights",
+          "requirements": "Correct bulbs, sockets, grounds and lenses",
+          "outcome": "Restore safe visibility"
+        },
+        {
+          "id": "MR-12-12",
+          "title": "Inspect brake lights and stop-switch",
+          "requirements": "Switch, bulbs, wiring and pedal adjustments",
+          "outcome": "Confirm lights operate with braking"
+        },
+        {
+          "id": "MR-12-13",
+          "title": "Inspect signals and hazard flashers",
+          "requirements": "Flasher, bulbs, turn switch/wiring as required",
+          "outcome": "Confirm correct four-corner functions"
+        },
+        {
+          "id": "MR-12-14",
+          "title": "Inspect horn and circuit",
+          "requirements": "Horn/relay and meter if needed",
+          "outcome": "Ensure driver warning device works"
+        },
+        {
+          "id": "MR-12-15",
+          "title": "Inspect wiper motor, linkage and washers",
+          "requirements": "Blades, washers, hose, pump and mechanism",
+          "outcome": "Verify effective windshield clearing"
+        },
+        {
+          "id": "MR-12-16",
+          "title": "Inspect added accessory/trailer wiring",
+          "requirements": "Fuses, loom, connectors and routing as needed",
+          "outcome": "Remove unsafe unprotected accessories"
+        },
+        {
+          "id": "MR-12-17",
+          "title": "Inspect and integrate upgraded distributor or ignition wiring",
+          "requirements": "Distributor/ignition controller IDs, coil, feed voltage, ballast needs, grounds, wiring diagram, rated connectors, harness protection and test tools",
+          "outcome": "Inspect existing non-stock ignition circuits and correct wiring or replace malfunctioning/incompatible components only after identification and tests."
+        }
+      ]
+    },
+    {
+      "number": "13",
+      "title": "Doors, glass, weatherstripping and water management",
+      "tasks": [
+        {
+          "id": "MR-13-01",
+          "title": "Inspect windshield opening and glass retention flange",
+          "requirements": "Light, rust-prep supplies, aperture reference",
+          "outcome": "Check metal and geometry before fitting front glass"
+        },
+        {
+          "id": "MR-13-02",
+          "title": "Install front windshield glass",
+          "requirements": "Correct verified glass, gasket, locking strip if applicable, ball-end strip tool if suitable, lubricant/assist",
+          "outcome": "Install only after aperture work, confirm retention and water-tightness"
+        },
+        {
+          "id": "MR-13-03",
+          "title": "Inspect front windshield gasket and trim fit",
+          "requirements": "Correct gasket/lockstrip profile, non-marring tools",
+          "outcome": "Identify seal type; do not guess the lockstrip requirement"
+        },
+        {
+          "id": "MR-13-04",
+          "title": "Inspect rear-window opening and flange",
+          "requirements": "Light, mirror, rust-prep supplies and measurements",
+          "outcome": "Verify sound metal and correct aperture shape"
+        },
+        {
+          "id": "MR-13-05",
+          "title": "Source correct rear-window glass for body style",
+          "requirements": "Vehicle body or cab identity, rear opening dimensions and model-correct glazing references",
+          "outcome": "Choose rear glass only after confirming the specific passenger car or pickup opening and glazing method."
+        },
+        {
+          "id": "MR-13-06",
+          "title": "Install rear glass with vehicle-correct seal or bonding",
+          "requirements": "Correct rear glass, factory-specified gasket or bonding system, retention trim and safe installation aids",
+          "outcome": "Install using the correct body-style procedure, then verify retention and leaks."
+        },
+        {
+          "id": "MR-13-07",
+          "title": "Inspect door side glass and quarter/vent windows",
+          "requirements": "Glass inspection tools and correct seals as applicable",
+          "outcome": "Repair chips, cracks and missing panes only as needed"
+        },
+        {
+          "id": "MR-13-08",
+          "title": "Inspect glass channels and window felts",
+          "requirements": "Correct run channels, felts, trim tools as needed",
+          "outcome": "Prevent binding, scratching and rattles"
+        },
+        {
+          "id": "MR-13-09",
+          "title": "Inspect window regulator, tracks and cranks",
+          "requirements": "Regulator parts, lube, fasteners as required",
+          "outcome": "Restore controlled and safe window movement"
+        },
+        {
+          "id": "MR-13-10",
+          "title": "Inspect door hinges and pins",
+          "requirements": "Alignment tools, hinge pins/bushings if worn",
+          "outcome": "Restore door fit and hinge strength"
+        },
+        {
+          "id": "MR-13-11",
+          "title": "Inspect door latches, strikers and locks",
+          "requirements": "Correct latch/striker and adjustment tools",
+          "outcome": "Confirm secure closure and occupant exit"
+        },
+        {
+          "id": "MR-13-12",
+          "title": "Replace damaged door perimeter weatherstrips",
+          "requirements": "Correct seals, adhesive if specified, trim tools",
+          "outcome": "Address actual water and wind leaks"
+        },
+        {
+          "id": "MR-13-13",
+          "title": "Inspect cowl vents, seals and drains",
+          "requirements": "Light, access/cleaning supplies",
+          "outcome": "Prevent water running into floor and rust seams"
+        },
+        {
+          "id": "MR-13-14",
+          "title": "Inspect roof gutters, rear seams and roof seal",
+          "requirements": "Sealant/coating suited to verified repair",
+          "outcome": "Correct leaks after sound metal established"
+        },
+        {
+          "id": "MR-13-15",
+          "title": "Inspect mirrors and mounts",
+          "requirements": "Correct mirrors, glass and mounting hardware",
+          "outcome": "Provide usable rearward visibility"
+        },
+        {
+          "id": "MR-13-16",
+          "title": "Perform controlled passenger-compartment water-leak test",
+          "requirements": "Water source, paper/light and observer",
+          "outcome": "Verify windows, doors, roof and cowl openings/drains remain watertight before final interior trim."
+        }
+      ]
+    },
+    {
+      "number": "14",
+      "title": "Cabin, HVAC and occupant equipment",
+      "tasks": [
+        {
+          "id": "MR-14-01",
+          "title": "Inspect seat frames, mounts and adjusters",
+          "requirements": "Mount hardware, support metal inspection and sockets",
+          "outcome": "Confirm occupant seat retention"
+        },
+        {
+          "id": "MR-14-02",
+          "title": "Inspect seat belts and anchors",
+          "requirements": "Correct belt assemblies, anchor hardware and fitment references",
+          "outcome": "Replace damaged/unsafe restraints; don't assume reused belts safe"
+        },
+        {
+          "id": "MR-14-03",
+          "title": "Inspect pedal assemblies and return actions",
+          "requirements": "Springs, pivot hardware and linkage references",
+          "outcome": "Verify brake/throttle/clutch movement and release"
+        },
+        {
+          "id": "MR-14-04",
+          "title": "Inspect dashboard mounting and sharp damage",
+          "requirements": "Fasteners, edge protection and trim tools",
+          "outcome": "Restore safe, secure dash and driver interfaces"
+        },
+        {
+          "id": "MR-14-05",
+          "title": "Verify heater blower and controls",
+          "requirements": "Motor, resistor, switches and ducts as needed",
+          "outcome": "Ensure basic heating airflow when chosen"
+        },
+        {
+          "id": "MR-14-06",
+          "title": "Verify windshield defroster ducts",
+          "requirements": "Vent hoses, nozzles, seals and blower test",
+          "outcome": "Maintain windshield visibility and defrost capability"
+        },
+        {
+          "id": "MR-14-07",
+          "title": "Inspect heater core, hoses and cabin leaks",
+          "requirements": "Cooling tools, correct hose/valve parts",
+          "outcome": "Prevent coolant leakage into the passenger compartment."
+        },
+        {
+          "id": "MR-14-08",
+          "title": "Service air conditioning only if chosen",
+          "requirements": "Actual A/C system ID, refrigerant service and seals",
+          "outcome": "Optional on driver builds; legal refrigerant handling applies"
+        },
+        {
+          "id": "MR-14-09",
+          "title": "Inspect passenger-compartment floor coating and underlay",
+          "requirements": "Rust-protection products and floor covering as chosen",
+          "outcome": "Protect and dry interior floor pans and footwells before final carpet/trim installation."
+        },
+        {
+          "id": "MR-14-10",
+          "title": "Fit door cards, interior handles and controls",
+          "requirements": "Clips, hardware and adjustment tools",
+          "outcome": "Restore secure handles and safe exit access"
+        },
+        {
+          "id": "MR-14-11",
+          "title": "Inspect cabin lamps, courtesy circuits and switches",
+          "requirements": "Bulbs, meter and wiring if fitted",
+          "outcome": "Make interior functions reliable"
+        },
+        {
+          "id": "MR-14-12",
+          "title": "Address noise, insulation and cosmetic trim if desired",
+          "requirements": "Safe insulation, adhesive and trim",
+          "outcome": "Optional comfort after leaks and structural issues are resolved"
+        },
+        {
+          "id": "MR-14-13",
+          "title": "Evaluate optional donor-dashboard and HVAC retrofit",
+          "requirements": "Actual donor dashboard and HVAC parts if available; controls, ducts, defroster, wiring, heater/A/C components, firewall fit and refrigerant service",
+          "outcome": "If retrofitting, verify dashboard, body shell/cab, controls, defrost and engine-side fit before selecting parts or performing work.",
+          "appliesTo": "Optional HVAC retrofit"
+        }
+      ]
+    },
+    {
+      "number": "15",
+      "title": "Exterior fit, coatings and finishing",
+      "tasks": [
+        {
+          "id": "MR-15-01",
+          "title": "Inspect hood hinges, latch and safety catch",
+          "requirements": "Pins/hinges/latch hardware, adjustments",
+          "outcome": "Ensure hood cannot release while driving"
+        },
+        {
+          "id": "MR-15-02",
+          "title": "Inspect front fenders, hood and grille mounts",
+          "requirements": "Fasteners, brackets, gap tools",
+          "outcome": "Align panels and prevent loose bodywork"
+        },
+        {
+          "id": "MR-15-03",
+          "title": "Inspect bumpers, brackets and fasteners",
+          "requirements": "Correct hardware and mount inspection",
+          "outcome": "Verify mounting strength and safe edges"
+        },
+        {
+          "id": "MR-15-04",
+          "title": "Inspect door, fender, pickup bed or trunk panel gaps",
+          "requirements": "Body alignment references and measuring tools",
+          "outcome": "Verify body openings and adjacent panel/closure clearances for the vehicle style."
+        },
+        {
+          "id": "MR-15-05",
+          "title": "Prepare repaired metal for finishing",
+          "requirements": "Appropriate degreaser, abrasives and PPE",
+          "outcome": "Ensure coating adhesion over sound metal"
+        },
+        {
+          "id": "MR-15-06",
+          "title": "Apply approved primers to bare metal",
+          "requirements": "Compatible primer, PPE, spraying or brushing gear",
+          "outcome": "Protect exposed repaired metal promptly"
+        },
+        {
+          "id": "MR-15-07",
+          "title": "Use body filler only over suitable prepared sound metal",
+          "requirements": "Appropriate filler/skim supplies and sanding tools",
+          "outcome": "Fair localized surfaces, never cover perforated metal"
+        },
+        {
+          "id": "MR-15-08",
+          "title": "Seal repaired joints and exposed flanges",
+          "requirements": "Compatible seam sealer and applicators",
+          "outcome": "Close water entry paths after verified metal repair"
+        },
+        {
+          "id": "MR-15-09",
+          "title": "Determine full repaint versus spot protection",
+          "requirements": "Owner finish decision, cost and surface assessment",
+          "outcome": "Skip expensive full paint if driver-grade protection meets goal"
+        },
+        {
+          "id": "MR-15-10",
+          "title": "Apply selected topcoat and cure",
+          "requirements": "Compatible paint system and required PPE/ventilation",
+          "outcome": "Finish protected surfaces to desired quality"
+        },
+        {
+          "id": "MR-15-11",
+          "title": "Apply cavity protection or underbody coatings as appropriate",
+          "requirements": "Compatible cavity wax or underbody products and applicators",
+          "outcome": "Preserve hard-to-reach repaired structure without sealing active rust"
+        },
+        {
+          "id": "MR-15-12",
+          "title": "Fit trim, badges, moldings and weatherproof fixtures",
+          "requirements": "Clips, screws and edge seals where needed",
+          "outcome": "Avoid scratching fresh coating and leaving leak paths"
+        }
+      ]
+    },
+    {
+      "number": "16",
+      "title": "Roadworthiness, documentation and commissioning",
+      "tasks": [
+        {
+          "id": "MR-16-01",
+          "title": "Verify vehicle identity, documents and insurance",
+          "requirements": "Title/registration references and private records",
+          "outcome": "Resolve legal ownership/vehicle identification before road use"
+        },
+        {
+          "id": "MR-16-02",
+          "title": "Verify emissions and road-equipment requirements",
+          "requirements": "Applicable registration rules and vehicle equipment info",
+          "outcome": "Determine requirements for specific build and jurisdiction"
+        },
+        {
+          "id": "MR-16-03",
+          "title": "Check all structural and safety fasteners",
+          "requirements": "Applicable torque references and calibrated wrench",
+          "outcome": "Verify mounts, steering, suspension, wheels and brakes"
+        },
+        {
+          "id": "MR-16-04",
+          "title": "Check fluids, hoses and hot/cold leaks",
+          "requirements": "Inspection gear, fluids and spill supplies",
+          "outcome": "Confirm no dangerous leakage at rest or running"
+        },
+        {
+          "id": "MR-16-05",
+          "title": "Test static steering, throttle, brake and park controls",
+          "requirements": "Chocks, competent observer and safety plan",
+          "outcome": "Validate positive control with engine on/off as needed"
+        },
+        {
+          "id": "MR-16-06",
+          "title": "Confirm occupant restraint and seat attachment",
+          "requirements": "Belt/seat inspection, anchors, appropriate qualified review",
+          "outcome": "Do not carry passengers until verified"
+        },
+        {
+          "id": "MR-16-07",
+          "title": "Check lights, horn, mirrors, wipers and defrost",
+          "requirements": "Electrical checklist and helper",
+          "outcome": "Confirm legal visibility and signaling"
+        },
+        {
+          "id": "MR-16-08",
+          "title": "Check tires, pressure, wheel torque and clearance",
+          "requirements": "Pressure gauge, torque wrench and tire data",
+          "outcome": "Prepare safe rolling assemblies"
+        },
+        {
+          "id": "MR-16-09",
+          "title": "Perform initial low-speed controlled test",
+          "requirements": "Appropriate safe closed area and test observer",
+          "outcome": "Assess steering, braking and drivetrain without road exposure"
+        },
+        {
+          "id": "MR-16-10",
+          "title": "Progress to limited local road test when roadworthy",
+          "requirements": "Legal documentation, emergency plan and support",
+          "outcome": "Watch for pull, heat, vibration and leaks"
+        },
+        {
+          "id": "MR-16-11",
+          "title": "Perform 4x4 low-range test if fitted",
+          "requirements": "Correct operation/engagement instructions and safe surface",
+          "outcome": "Check actual engagement and no binding; never test part-time 4WD on dry high-traction pavement",
+          "appliesTo": "4WD vehicles only"
+        },
+        {
+          "id": "MR-16-12",
+          "title": "Reinspect after drive and retorque as directed",
+          "requirements": "Lift access, torque and leak check",
+          "outcome": "Catch loosening, new leaks and fresh wear"
+        },
+        {
+          "id": "MR-16-13",
+          "title": "Record final tests, defects and deferred work",
+          "requirements": "Evidence log, photos/notes, service history",
+          "outcome": "Prevent incomplete work from being marked finished"
+        },
+        {
+          "id": "MR-16-14",
+          "title": "Establish maintenance baseline and future checks",
+          "requirements": "Fluids/belt/inspection schedule and notes",
+          "outcome": "Keep finished vehicle reliable after restoration"
+        }
+      ]
+    },
+    {
+      "number": "17",
+      "title": "Elective upgrades and show-level work",
+      "tasks": [
+        {
+          "id": "MR-17-01",
+          "title": "Decide engine replacement or performance build",
+          "requirements": "Project goals, engineering, budget and compatibility plan",
+          "outcome": "Optional; keep serviceable drivetrain if it meets target",
+          "appliesTo": "Optional upgrade"
+        },
+        {
+          "id": "MR-17-02",
+          "title": "Decide transmission or gear-ratio swap",
+          "requirements": "Driveline matching, fabrication and transmission plan",
+          "outcome": "Optional; justify by use rather than originality",
+          "appliesTo": "Optional upgrade"
+        },
+        {
+          "id": "MR-17-03",
+          "title": "Decide lift, suspension or axle upgrade",
+          "requirements": "Correct steering/driveshaft/brake geometry and safety plan",
+          "outcome": "Optional; revalidate all associated systems",
+          "appliesTo": "Optional upgrade"
+        },
+        {
+          "id": "MR-17-04",
+          "title": "Decide upgraded brake conversion",
+          "requirements": "Engineered parts, hydraulic compatibility and validation",
+          "outcome": "Optional upgrade distinct from mandatory functional braking",
+          "appliesTo": "Optional upgrade"
+        },
+        {
+          "id": "MR-17-05",
+          "title": "Consider transfer-case and hub upgrades (4WD only)",
+          "requirements": "Actual axle/transfer identification, matched parts",
+          "outcome": "Optional; never confuse changed shifter operation with proven engagement",
+          "appliesTo": "Optional 4WD upgrade"
+        },
+        {
+          "id": "MR-17-06",
+          "title": "Decide major rewiring or custom electronics",
+          "requirements": "Circuit protection, harness design and diagrams",
+          "outcome": "Optional; still repair unsafe existing wiring",
+          "appliesTo": "Optional upgrade"
+        },
+        {
+          "id": "MR-17-07",
+          "title": "Decide climate-control modernization",
+          "requirements": "HVAC packaging, electrical/engine demand review",
+          "outcome": "Optional comfort",
+          "appliesTo": "Optional upgrade"
+        },
+        {
+          "id": "MR-17-08",
+          "title": "Consider full body-off or unibody shell restoration",
+          "requirements": "Structural measurements, lifting/support plan, frame or unibody repair references, and budget",
+          "outcome": "For separate-frame vehicles, evaluate a body-off rebuild; for unibody vehicles, evaluate complete shell disassembly, bracing and structural repairs.",
+          "appliesTo": "Optional major restoration"
+        },
+        {
+          "id": "MR-17-09",
+          "title": "Decide show-quality paint and perfect panel gaps",
+          "requirements": "Paint equipment, refinishing budget and owner finish target",
+          "outcome": "Optional cosmetics beyond weather protection",
+          "appliesTo": "Optional upgrade"
+        },
+        {
+          "id": "MR-17-10",
+          "title": "Decide custom interior, upholstery and sound system",
+          "requirements": "Interior parts, trim and electrical integration",
+          "outcome": "Optional after safety and sealing",
+          "appliesTo": "Optional upgrade"
+        },
+        {
+          "id": "MR-17-11",
+          "title": "Decide custom wheels, tires and stance",
+          "requirements": "Wheel fitment, load and safety validation",
+          "outcome": "Optional, not an excuse to skip good tires",
+          "appliesTo": "Optional upgrade"
+        },
+        {
+          "id": "MR-17-12",
+          "title": "Decide aftermarket winch, hitch or towing equipment",
+          "requirements": "Rated brackets, safe electric feed and capacity checks",
+          "outcome": "Optional and must be compatible with vehicle structure",
+          "appliesTo": "Optional upgrade"
+        }
+      ]
+    }
+  ]
+}

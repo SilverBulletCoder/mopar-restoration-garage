@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CudaProjectHeader from '../../../../components/CudaProjectHeader.astro';
+import PartsWishlist from '../../../../components/PartsWishlist.astro';
+import { cudaProjectPartLinks } from '../../../../data/project-part-links.js';
+---
+<BaseLayout
+  title="1973 Plymouth ’Cuda — Parts Wishlist | Mopar Restoration Garage"
+  description="Saved part-specific links for the 1973 Plymouth Cuda restoration, organized by supplier and research status."
+>
+  <CudaProjectHeader active="wishlist" section="Parts wishlist" />
+  <PartsWishlist groups={cudaProjectPartLinks} vehicleName="the 1973 Plymouth ’Cuda" />
+</BaseLayout>

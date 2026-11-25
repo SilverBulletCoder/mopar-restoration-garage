@@ -1,0 +1,60 @@
+---
+const { active = 'overview', section = '' } = Astro.props;
+const navigation = [
+  { label: 'Overview', href: '/builds/1973-cuda/', key: 'overview' },
+  { label: 'Parts Inventory', href: '/builds/1973-cuda/inventory/', key: 'inventory' },
+  { label: 'Parts Wishlist', href: '/builds/1973-cuda/wishlist/', key: 'wishlist' },
+  { label: 'Photo Galleries', href: '/builds/1973-cuda/photos/', key: 'photos' },
+  { label: 'Restoration Checks', href: '/builds/1973-cuda/grc/', key: 'grc' },
+];
+---
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/builds/">Builds</a>
+  <span aria-hidden="true">/</span>
+  {section ? <a href="/builds/1973-cuda/">1973 ’Cuda</a> : <span>1973 ’Cuda</span>}
+  {section && <><span aria-hidden="true">/</span><span>{section}</span></>}
+</nav>
+<section class="project-hero">
+  <div class="project-hero-copy">
+    <p class="eyebrow">Featured restoration project</p>
+    <h1>1973 Plymouth ’Cuda</h1>
+    <p class="lead">Full restoration journey, from teardown to the road.</p>
+  </div>
+  <a class="project-hero-image" href="/builds/1973-cuda/photos/" aria-label="Explore the 1973 Plymouth Cuda photo galleries">
+    <img
+      src="/media/1973-cuda/front-driver.jpg"
+      alt="1973 Plymouth Cuda viewed from the front driver side, matching the home page's Main project photo"
+      width="960"
+      height="720"
+      loading="eager"
+      decoding="async"
+    />
+  </a>
+</section>
+<nav class="project-nav" aria-label="1973 Plymouth Cuda project navigation">
+  {navigation.map((item) => (
+    <a href={item.href} class={active === item.key ? "current" : ""} aria-current={active === item.key ? 'page' : undefined}>{item.label}</a>
+  ))}
+</nav>
+<style>
+  .breadcrumb{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center;margin:1rem 0 2.25rem;color:#9fa9ae;font-size:.9rem}
+  .breadcrumb a{color:#ff954c;text-decoration:none;font-weight:700}
+  .breadcrumb a:hover{text-decoration:underline}
+  .project-hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(2rem,5vw,4.5rem);background:linear-gradient(135deg,#4a3023,#20252a 62%);border:1px solid #3f474c;border-radius:20px;box-shadow:0 24px 65px #0003;margin-bottom:1.3rem}
+  .project-hero-copy{position:relative;z-index:1;max-width:calc(100% - clamp(125px,17vw,190px))}
+  .project-hero-image{position:absolute;z-index:0;top:50%;right:clamp(1rem,3vw,2.5rem);transform:translateY(-50%);display:block;width:clamp(120px,17%,175px);height:clamp(95px,12vw,142px);max-height:calc(100% - 1.5rem);padding:.3rem;overflow:hidden;border:1px solid #715849;border-radius:12px;background:#151a1dcc;box-shadow:0 8px 23px #0006}
+  .project-hero-image img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+  .project-hero-image:hover,.project-hero-image:focus-visible{border-color:#ffbd72}
+  .project-hero-image:focus-visible{outline:2px solid #ffbd72;outline-offset:3px}
+  @media(max-width:650px){.project-hero-copy{max-width:calc(100% - 82px)}.project-hero-image{width:80px;height:69px;top:3.4rem;right:.85rem;transform:none;padding:.2rem;border-radius:8px}}
+  @media(max-width:430px){.project-hero-copy{max-width:100%}.project-hero-image{width:72px;height:57px;top:1rem;right:1rem;opacity:.95}.project-hero-copy .eyebrow{padding-right:62px}}
+  h1{font-size:clamp(2.8rem,6vw,5.4rem);line-height:1.02;letter-spacing:-.055em;margin:.55rem 0 1rem}
+  .lead{max-width:42rem;color:#c5cdcf;font-size:1.12rem;line-height:1.7}
+  .project-nav{position:sticky;top:.45rem;z-index:20;display:flex;flex-wrap:wrap;gap:.65rem;padding:.8rem;margin:0 0 2rem;border:1px solid #526068;border-radius:12px;background:rgba(27,33,37,.97);box-shadow:0 12px 28px #0005;backdrop-filter:blur(8px)}
+  .project-nav a{display:inline-block;padding:.65rem 1rem;background:#293238;border:1px solid #455158;border-radius:8px;color:#eaf0f1;font-size:.91rem;font-weight:750;text-decoration:none;white-space:nowrap}
+  .project-nav a:hover,.project-nav a:focus-visible{border-color:#ff9b56;background:#423529;color:#ffcfaa}
+  .project-nav a.current{border-color:#ffac70;background:#563825;color:#fff0e1}
+  .project-nav a:focus-visible{outline:2px solid #ffbd72;outline-offset:2px}
+  @media(max-width:700px){.project-nav{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;gap:.45rem;padding:.62rem}.project-nav a{font-size:.83rem;padding:.57rem .72rem}}
+  @media print{.project-nav{display:none}}
+</style>

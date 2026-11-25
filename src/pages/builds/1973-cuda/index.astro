@@ -1,164 +1,129 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CudaProjectHeader from '../../../components/CudaProjectHeader.astro';
+import { cudaProjectPartLinks } from '../../../data/project-part-links.js';
+import { cudaPhotoCategories } from '../../../data/cuda-photo-galleries.js';
+import { cudaProjectUpdates } from '../../../data/cuda-project-updates.js';
+const recentUpdates = [...cudaProjectUpdates]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 5);
+const formatDate = (isoDate) => new Intl.DateTimeFormat('en-US', {
+  month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC'
+}).format(new Date(isoDate + 'T00:00:00Z'));
+const savedPartCount = cudaProjectPartLinks.reduce((count, supplier) => count + supplier.references.length, 0);
+const savedPhotoCount = cudaPhotoCategories.reduce((count, group) => count + group.photos.length, 0);
 ---
 <BaseLayout
   title="1973 Plymouth ’Cuda | Mopar Restoration Garage"
-  description="Follow the 1973 Plymouth ’Cuda restoration project, including repair work, fabrication, photos, and progress updates."
+  description="1973 Plymouth Cuda restoration project overview. Visit separate pages for parts, photo galleries, and general restoration checks."
 >
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/builds/">Builds</a>
-    <span aria-hidden="true">/</span>
-    <span>1973 ’Cuda</span>
-  </nav>
-
-  <section class="project-hero">
-    <p class="eyebrow">Featured restoration project</p>
-    <h1>1973 Plymouth ’Cuda</h1>
-    <p class="lead">Full restoration journey, from teardown to the road.</p>
-  </section>
-
-  <section class="project-section" aria-labelledby="gallery-title">
-    <div class="section-heading">
+  <CudaProjectHeader active="overview" />
+  <section class="overview" aria-labelledby="overview-title">
+    <div class="overview-heading">
       <div>
-        <p class="eyebrow">Project documentation</p>
-        <h2 id="gallery-title">Photo gallery</h2>
+        <p class="eyebrow">Project dashboard</p>
+        <h2 id="overview-title">Explore This Restoration</h2>
       </div>
+      <p>Choose an area below instead of scrolling through every part and photo on one page.</p>
     </div>
 
-    <div class="gallery-group pickup-group" aria-labelledby="pickup-title">
-      <div class="group-heading">
-        <p class="eyebrow">Pickup day</p>
-        <h3 id="pickup-title">Bringing the ’Cuda Home</h3>
-      </div>
-
-      <figure class="gallery-card pickup-card">
-        <img
-          src="/media/1973-cuda/drive-home.jpg"
-          alt="1973 Plymouth ’Cuda on a trailer during the drive home after pickup"
-          loading="lazy"
-        />
-        <figcaption>Drive home with the ’73 ’Cuda after pickup.</figcaption>
-      </figure>
-    </div>
-
-    <div class="gallery-group" aria-labelledby="marketplace-title">
-      <div class="group-heading">
-        <p class="eyebrow">Before pickup</p>
-        <h3 id="marketplace-title">Marketplace Listing Photos</h3>
-        <p>These are the original Marketplace photos that documented the ’Cuda and included parts before it came home.</p>
-      </div>
-
-      <div class="gallery-grid">
-        <figure class="gallery-card">
-          <img
-            src="/media/1973-cuda/marketplace-passenger-side.jpg"
-            alt="Disassembled 1973 Plymouth ’Cuda body and engine bay from the passenger-side front"
-            loading="lazy"
-          />
-          <figcaption>Marketplace listing photo showing the disassembled ’73 ’Cuda body and engine bay before pickup.</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <img
-            src="/media/1973-cuda/marketplace-rear.jpg"
-            alt="Rear view of the stripped 1973 Plymouth ’Cuda body shell"
-            loading="lazy"
-          />
-          <figcaption>Rear view from the original Marketplace listing, showing the stripped tail panel and body shell.</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <img
-            src="/media/1973-cuda/marketplace-firewall.jpg"
-            alt="Firewall and engine bay structure of the 1973 Plymouth ’Cuda"
-            loading="lazy"
-          />
-          <figcaption>Marketplace condition of the firewall and engine bay before the restoration came home.</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <img
-            src="/media/1973-cuda/marketplace-floor-pan.jpg"
-            alt="Interior floor pan condition of the 1973 Plymouth ’Cuda"
-            loading="lazy"
-          />
-          <figcaption>Interior floor condition shown in the Marketplace listing before pickup.</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <img
-            src="/media/1973-cuda/marketplace-rear-seat.jpg"
-            alt="Rear seat and wheelhouse area of the stripped 1973 Plymouth ’Cuda"
-            loading="lazy"
-          />
-          <figcaption>Rear seat and wheelhouse area as shown in the original Marketplace photos.</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <img
-            src="/media/1973-cuda/marketplace-rear-deck.jpg"
-            alt="Rear deck and interior structure of the stripped 1973 Plymouth ’Cuda"
-            loading="lazy"
-          />
-          <figcaption>Rear deck and interior structure photographed while the car was still with the seller.</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <img
-            src="/media/1973-cuda/marketplace-hood-underside.jpg"
-            alt="Underside of the hood included with the 1973 Plymouth ’Cuda"
-            loading="lazy"
-          />
-          <figcaption>Underside of the hood included with the ’Cuda, shown in the Marketplace listing.</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <img
-            src="/media/1973-cuda/marketplace-340-engine.jpg"
-            alt="Numbers-matching 340 engine shown with the 1973 Plymouth ’Cuda"
-            loading="lazy"
-          />
-          <figcaption>The numbers-matching 340 engine shown with the car in the original Marketplace listing.</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <img
-            src="/media/1973-cuda/marketplace-hurst-shifter.jpg"
-            alt="Four-speed Hurst shifter included with the 1973 Plymouth ’Cuda"
-            loading="lazy"
-          />
-          <figcaption>The 4-speed Hurst shifter included with the ’Cuda, photographed before pickup.</figcaption>
-        </figure>
-      </div>
+    <div class="section-cards">
+      <a class="section-card" id="parts-inventory" href="/builds/1973-cuda/inventory/">
+        <span class="section-icon" aria-hidden="true">01</span>
+        <h3>Parts Inventory</h3>
+        <p>Catalog the parts already on hand using photographs, quantities, condition and location to determine what's missing.</p>
+        <span class="section-meta">0 parts cataloged · Photos pending</span>
+        <span class="section-action">Open inventory &rarr;</span>
+      </a>
+      <a class="section-card" id="parts-wishlist" href="/builds/1973-cuda/wishlist/">
+        <span class="section-icon" aria-hidden="true">02</span>
+        <h3>Parts Wishlist</h3>
+        <p>Product-specific links grouped by supplier, with Interested, Want, and Purchased tracking states.</p>
+        <span class="section-meta">{savedPartCount} saved product links</span>
+        <span class="section-action">Open wishlist &rarr;</span>
+      </a>
+      <a class="section-card" id="gallery-title" href="/builds/1973-cuda/photos/">
+        <span class="section-icon" aria-hidden="true">03</span>
+        <h3>Photo Galleries</h3>
+        <p>Marketplace, pickup day, trunk-to-tail-panel inspections, and rear structure photographs in separate collections.</p>
+        <span class="section-meta">{savedPhotoCount} photos in 4 galleries</span>
+        <span class="section-action">Browse photos &rarr;</span>
+      </a>
+      <a class="section-card" id="grc-checks-title" href="/builds/1973-cuda/grc/">
+        <span class="section-icon" aria-hidden="true">04</span>
+        <h3>Restoration Checks</h3>
+        <p>Review the Cuda's separate browser-local checklist based on the 235-task general restoration master.</p>
+        <span class="section-meta">235 restoration checks</span>
+        <span class="section-action">Open checklist &rarr;</span>
+      </a>
     </div>
   </section>
-
-  <section aria-label="General Restoration Checks" class="project-section">
-    <h2>General Restoration Checks (GRC)</h2>
-    <p>Use the 235-check restoration list for this vehicle. Progress is stored only in your browser and does not modify the unchanged master checklist.</p>
-    <p><a href="/builds/1973-cuda/grc/">Open 1973 Plymouth ’Cuda GRC checklist →</a> · <a href="/grc/">View GRC master →</a></p>
+  <section class="recent-updates" aria-labelledby="recent-updates-title">
+    <div class="updates-heading">
+      <div>
+        <p class="eyebrow">Project activity</p>
+        <h2 id="recent-updates-title">Recent Updates</h2>
+      </div>
+      <span class="updates-limit">Latest 5 maximum</span>
+    </div>
+    {recentUpdates.length > 0 ? (
+      <ol class="updates-list">
+        {recentUpdates.map((entry) => (
+          <li>
+            <a class="update-link" href={entry.href}>
+              <div class="update-text">
+                <h3>{entry.title}</h3>
+                <p>{entry.detail}</p>
+              </div>
+              <time datetime={entry.date}>{formatDate(entry.date)}</time>
+            </a>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <p class="no-updates">No project updates have been recorded yet.</p>
+    )}
   </section>
-  <p class="back-link"><a href="/">← Back to home</a></p>
+
+  <script is:inline>
+    // Preserve bookmarks to sections that moved from this long-form page.
+    const legacy = {
+      '#marketplace-title': '/builds/1973-cuda/photos/marketplace/',
+      '#pickup-title': '/builds/1973-cuda/photos/pickup/',
+      '#tail-panel-inspection-title': '/builds/1973-cuda/photos/trunk-floor-to-tail-panel/',
+      '#rear-body-inspection-title': '/builds/1973-cuda/photos/rear-structure/',
+    };
+    const nextPage = legacy[window.location.hash];
+    if (nextPage) window.location.replace(nextPage);
+  </script>
 </BaseLayout>
-
 <style>
-  .breadcrumb{display:flex;gap:.55rem;align-items:center;margin:1rem 0 2.25rem;color:#9fa9ae;font-size:.9rem}
-  .breadcrumb a{color:#ff954c;text-decoration:none;font-weight:700}
-  .project-hero{padding:clamp(2rem,5vw,4.5rem);background:linear-gradient(135deg,#4a3023,#20252a 62%);border:1px solid #3f474c;border-radius:20px;box-shadow:0 24px 65px #0003;margin-bottom:3rem}
-  h1{font-size:clamp(2.8rem,6vw,5.4rem);line-height:1.02;letter-spacing:-.055em;margin:.55rem 0 1rem}
-  .lead{max-width:42rem;color:#c5cdcf;font-size:1.12rem;line-height:1.7}
-  .project-section{margin:0 0 3rem}
-  .section-heading{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1.5rem}
-  h2{font-size:clamp(1.8rem,3vw,2.5rem);margin:.2rem 0}
-  h3{font-size:clamp(1.35rem,2.5vw,1.9rem);margin:.2rem 0 .45rem}
-  .gallery-group{margin-top:2rem}
-  .gallery-group + .gallery-group{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid #343c41}
-  .group-heading{margin-bottom:1.15rem}
-  .group-heading p:last-child{max-width:52rem;color:#aeb8bc;line-height:1.65;margin:.35rem 0 0}
-  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.15rem}
-  .gallery-card{margin:0;background:#20262a;border:1px solid #3f474c;border-radius:14px;overflow:hidden;box-shadow:0 18px 45px #0002}
-  .gallery-card img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:#15191c}
-  .gallery-card figcaption{padding:1rem 1.15rem 1.15rem;color:#c5cdcf;font-size:.98rem;line-height:1.5}
-  .pickup-card img{max-height:760px}
-  .back-link a{color:#ff954c;text-decoration:none;font-weight:700}
+  .overview{margin:0 0 2.3rem}
+  .overview-heading{display:flex;align-items:end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.35rem}
+  h2{font-size:clamp(1.55rem,3vw,2.3rem);margin:.3rem 0}
+  .overview-heading p:not(.eyebrow){max-width:30rem;color:#c4cdd1;line-height:1.5;margin:0}
+  .section-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+  .section-card{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:1.45rem;border:1px solid #4b565b;border-radius:14px;background:#20282c;color:inherit;text-decoration:none;box-shadow:0 14px 25px #0003}
+  .section-card:hover,.section-card:focus-visible{border-color:#ffb079;background:#293238;outline:2px solid transparent;transform:translateY(-2px)}
+  .section-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:9px;background:#513725;color:#ffd1a6;font-weight:800}
+  h3{font-size:1.25rem;margin:1rem 0 .65rem}
+  .section-card p{color:#c0cbd0;font-size:.92rem;line-height:1.57;margin:0 0 1.15rem;flex:1}
+  .section-meta{font-size:.86rem;color:#abb9bf;margin-top:auto}
+  .section-action{display:inline-block;margin-top:.85rem;color:#ffbd72;font-weight:800}
+  .recent-updates{margin:0 0 2.4rem;border:1px solid #48545a;border-radius:14px;background:#1b2226;padding:clamp(1rem,2.8vw,1.65rem)}
+  .updates-heading{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem}
+  .updates-heading h2{margin:.2rem 0}
+  .updates-limit{font-size:.81rem;color:#aab8bd}
+  .updates-list{padding:0;margin:0;list-style:none;display:grid;gap:0}
+  .updates-list li+li{border-top:1px solid #39444a}
+  .update-link{display:flex;align-items:baseline;justify-content:space-between;gap:.65rem 1.4rem;padding:.88rem .35rem;color:inherit;text-decoration:none;border-radius:7px}
+  .update-link:hover,.update-link:focus-visible{background:#283138;outline:2px solid transparent}
+  .update-text{min-width:0}
+  .update-text h3{margin:0;font-size:1rem;color:#ffbd86}
+  .update-text p{margin:.28rem 0 0;color:#b9c7cc;font-size:.88rem;line-height:1.5}
+  .update-link time{flex:none;font-size:.87rem;white-space:nowrap;color:#d9e0e2;font-weight:750}
+  .no-updates{color:#c4cdd0}
+  @media(max-width:580px){.update-link{display:block;padding:.9rem .25rem}.update-link time{display:block;margin-top:.45rem;font-size:.8rem;color:#d8b891}}
+
+  @media(max-width:620px){.section-cards{grid-template-columns:minmax(0,1fr)}}
 </style>

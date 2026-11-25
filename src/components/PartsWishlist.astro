@@ -1,0 +1,103 @@
+---
+const { groups = [], vehicleName = 'this project' } = Astro.props;
+const visibleGroups = groups.filter((group) => group.references?.length > 0);
+const partCount = visibleGroups.reduce((total, group) => total + group.references.length, 0);
+---
+<section class="parts-wishlist" id="parts-wishlist" aria-labelledby="parts-wishlist-title">
+  <div class="wishlist-header">
+    <div>
+      <p class="eyebrow">Project-specific links</p>
+      <h2 id="parts-wishlist-title">Parts &amp; Supplies Wishlist</h2>
+      <p>Saved links for {vehicleName}, grouped by supplier. Entries are research candidates, not confirmed purchases. Verify fitment and availability before ordering.</p>
+    </div>
+    <div class="wishlist-meta">
+      <span class="count">{partCount} saved links</span>
+      <a href="/links/">General suppliers &amp; resources &rarr;</a>
+    </div>
+  </div>
+  <p class="status-guide"><strong>Status guide:</strong> Interested = researching; Want = planned purchase; Purchased = ownership confirmed. All migrated links begin as Interested until reviewed.</p>
+  {visibleGroups.length > 0 ? (
+    <div class="wishlist-groups">
+      {visibleGroups.map((supplier) => (
+        <details class="supplier">
+          <summary class="supplier-heading">
+            <h3>{supplier.name}</h3>
+            <span class="supplier-count">{supplier.references.length} {supplier.references.length === 1 ? 'item' : 'items'} · Click to expand</span>
+          </summary>
+          <p class="supplier-home"><a href={supplier.homepage} target="_blank" rel="noopener noreferrer">Visit {supplier.name} website &rarr;</a></p>
+          <div class="parts-grid">
+            {supplier.references.map((part) => (
+              <article class="part-card">
+                {part.image ? (
+                  <a class="thumbnail" href={part.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${part.title}`}>
+                    <img src={part.image} alt={part.imageAlt ?? part.title} loading="lazy" decoding="async" width="110" height="110" />
+                  </a>
+                ) : (
+                  <a class="thumbnail placeholder" href={part.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${part.title}`}>PART</a>
+                )}
+                <div class="part-info">
+                  <div class="part-heading">
+                    <h4><a href={part.url} target="_blank" rel="noopener noreferrer">{part.title}</a></h4>
+                    <span class={`status status-${(part.status ?? 'Interested').toLowerCase()}`} aria-label={`Wishlist status: ${part.status ?? 'Interested'}`}>{part.status ?? 'Interested'}</span>
+                  </div>
+                  {part.description && <p>{part.description}</p>}
+                  {part.vehicleApplicability && <p class="vehicle">{part.vehicleApplicability}</p>}
+                  {part.imageNote && <p class="image-note">{part.imageNote}</p>}
+                  <a class="part-link" href={part.url} target="_blank" rel="noopener noreferrer">{part.linkLabel ?? 'View part'} &rarr;</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+  ) : (
+    <p class="empty-wishlist">No project-specific parts links saved yet. Visit the <a href="/links/">general supplier resources</a> for research.</p>
+  )}
+</section>
+<style>
+  .parts-wishlist{margin:0 0 3rem;border:1px solid #414a4f;border-radius:16px;background:#1b2125;padding:clamp(1.15rem,3vw,1.9rem);scroll-margin-top:1rem}
+  .wishlist-header{display:flex;justify-content:space-between;align-items:start;gap:1.25rem;flex-wrap:wrap}
+  .eyebrow{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#ffb27a}
+  h2{font-size:clamp(1.7rem,3vw,2.3rem);margin:.25rem 0 .65rem}
+  .wishlist-header p:not(.eyebrow){max-width:52rem;line-height:1.65;color:#bec8cc;margin:0}
+  .wishlist-meta{display:flex;flex-direction:column;gap:.7rem;align-items:flex-start;padding-top:.25rem}
+  .wishlist-meta a,.part-link{color:#ffb783;font-weight:750;text-decoration:none}
+  .wishlist-meta a:hover,.part-link:hover,.part-heading h4 a:hover{color:#ffd0ad;text-decoration:underline}
+  .count{font-size:.84rem;font-weight:800;color:#f5dbbf;background:#34302a;border:1px solid #62513e;border-radius:8px;padding:.45rem .6rem}
+  .status-guide{margin:1.25rem 0 1.5rem;color:#c5cdd0;font-size:.9rem;line-height:1.6}
+  .wishlist-groups{display:grid;gap:1.2rem}
+  .supplier{padding:1.15rem;border-radius:12px;background:#232a2e;border:1px solid #434c51}
+  .supplier-heading{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:0;cursor:pointer;list-style:none}
+  .supplier-heading::-webkit-details-marker{display:none}
+  .supplier-heading::before{content:"+";color:#ffbd86;font-size:1.35rem;font-weight:900}
+  .supplier[open] .supplier-heading::before{content:"−"}
+  .supplier[open] .supplier-heading{margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid #475158}
+  .supplier-home{margin:0 0 1rem;font-size:.87rem}
+  .supplier-home a{color:#ffbd86;font-weight:750;text-decoration:none}
+  .supplier-home a:hover{text-decoration:underline}
+  h3{font-size:1.25rem;margin:0}
+
+  .supplier-count{color:#aebac0;font-size:.86rem}
+  .parts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,355px),1fr));gap:.85rem}
+  .part-card{display:flex;gap:.85rem;min-width:0;padding:.85rem;background:#161d20;border:1px solid #3c474c;border-radius:10px}
+  .thumbnail{height:110px;width:110px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid #4e565b;border-radius:8px;background:#30373b;overflow:hidden}
+  .thumbnail img{height:100%;width:100%;object-fit:contain}
+  .placeholder{font-size:.78rem;letter-spacing:.1em;font-weight:800;color:#ccd2d4;text-decoration:none}
+  .part-info{min-width:0;flex:1}
+  .part-heading{display:flex;align-items:flex-start;gap:.5rem;justify-content:space-between;flex-wrap:wrap}
+  h4{margin:0;font-size:.98rem;line-height:1.4}
+  h4 a{color:#f1f4f4;text-decoration:none}
+  .status{border:1px solid #677078;border-radius:7px;padding:.22rem .45rem;font-size:.75rem;font-weight:750;color:#e9edef;white-space:nowrap}
+  .status-interested{border-color:#6d7276}
+  .status-want{border-color:#d29a60;color:#ffd8ab}
+  .status-purchased{border-color:#65a184;color:#b9e9cd}
+  .part-info p{font-size:.87rem;line-height:1.5;color:#b9c3c7;margin:.45rem 0 0}
+  .part-info .vehicle{color:#d7b994}
+  .part-info .image-note{font-size:.77rem;font-style:italic}
+  .part-link{display:inline-block;font-size:.87rem;margin-top:.65rem}
+  .empty-wishlist{line-height:1.6;color:#b9c3c7}
+  .empty-wishlist a{color:#ffb783}
+  a:focus-visible{outline:2px solid #ff954c;outline-offset:3px}
+  @media(max-width:520px){.part-card{gap:.7rem}.thumbnail{width:86px;height:86px}.supplier{padding:.85rem}}
+</style>

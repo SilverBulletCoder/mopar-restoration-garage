@@ -1,432 +1,118 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// Add suppliers to this array; add specific products or catalog links to
-// each supplier's "references" array. Images are optional. Supplier homepages
-// and specific item URLs are kept separate.
+// Global directory: supplier homepages ONLY. Specific product links and
+// research references are preserved separately in project-part-links.js.
 const suppliers = [
   {
-    name: 'Specialist Paints',
-    homepage: 'https://usa.specialistpaints.com/',
-    category: 'Paint Suppliers',
-    description: 'Custom Paints Inc — automotive paint colors and finishes.',
-    references: [
-      {
-        title: 'Chrysler Deep Sherwood Green — Paint Code G8',
-        url: 'https://usa.specialistpaints.com/products/chrysler-deep-sherwood-green-paint-code-g8?variant=40407905861811',
-        description: '12 oz aerosol paint option, code G8.',
-        image: 'https://usa.specialistpaints.com/cdn/shop/products/CAN_f8f059a8-5bbb-4c4e-9c75-c811bec8b1ee.jpg?v=1679064890',
-        imageAlt: 'Specialist Paints 12 oz aerosol can product photo',
-        linkLabel: 'View paint'
-      },
-      {
-        title: 'Chrysler Green Go — Paint Code J6',
-        url: 'https://usa.specialistpaints.com/products/chrysler-green-go-paint-code-j6?variant=42389579792639',
-        description: '12 oz aerosol paint option, code J6.',
-        image: 'https://usa.specialistpaints.com/cdn/shop/products/CAN_0600e4ba-1a23-4436-9eca-97710dffecb2.jpg?v=1679065336',
-        imageAlt: 'Specialist Paints 12 oz aerosol can product photo',
-        linkLabel: 'View paint'
-      }
-    ]
+    "name": "Specialist Paints",
+    "homepage": "https://usa.specialistpaints.com/",
+    "category": "Paint Suppliers",
+    "description": "Custom Paints Inc — automotive paint colors and finishes."
   },
   {
-    name: 'Southern Polyurethanes (SPI)',
-    homepage: 'https://www.southernpolyurethanes.com/',
-    category: 'Paint Suppliers',
-    description: 'Professional automotive epoxy primers and refinishing coatings.',
-    references: [
-      {
-        title: 'SPI Epoxy Primer — Two-Part Bare Metal Primer',
-        url: 'https://www.southernpolyurethanes.com/products/primers/',
-        description: 'SPI epoxy primer product information, including activator 6700 and available colors. This is epoxy, not high-build polyester filler.',
-        image: 'https://static.wixstatic.com/media/8ced3e_087decea4fdc4c188cf74427fbfbdf9a~mv2.png/v1/fill/w_312,h_278,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/primers-epoxy-primer.png',
-        imageAlt: 'Southern Polyurethanes epoxy primer container',
-        linkLabel: 'View epoxy primer',
-      }
-    ]
+    "name": "Southern Polyurethanes (SPI)",
+    "homepage": "https://www.southernpolyurethanes.com/",
+    "category": "Paint Suppliers",
+    "description": "Professional automotive epoxy primers and refinishing coatings."
   },
   {
-    name: 'Tamco Paint',
-    homepage: 'https://tamcopaint.com/',
-    category: 'Paint Suppliers',
-    description: 'Automotive epoxy primer and refinishing coating systems.',
-    references: [
-      {
-        title: 'Tamco DTA Epoxy Primer / Sealer Kit — HP661 Gray',
-        url: 'https://tamcopaint.com/products/dta-epoxy-direct-to-anything',
-        description: 'Direct-to-substrate 2K epoxy primer/sealer; kit page also offers black and white.',
-        image: 'https://tamcopaint.com/cdn/shop/files/DTA_HP661_Epoxy_Primer_Grey_Gallon.png?v=1758546651&width=480',
-        imageAlt: 'Tamco Paint HP661 DTA epoxy primer gray gallon container',
-        linkLabel: 'View epoxy primer kit',
-      }
-    ]
+    "name": "Tamco Paint",
+    "homepage": "https://tamcopaint.com/",
+    "category": "Paint Suppliers",
+    "description": "Automotive epoxy primer and refinishing coating systems."
   },
   {
-    name: 'SEM Products',
-    homepage: 'https://semproducts.com/',
-    category: 'Paint Suppliers',
-    description: 'Automotive repair coatings and welding preparation products.',
-    references: [
-      {
-        title: 'SEM Copperweld Weld-Through Primer — 40793',
-        url: 'https://semproducts.com/product/copperweldtm-primer/40793',
-        description: 'Copper-enriched, zinc-based weld-through primer; 16 oz aerosol for overlapping welded panels.',
-        image: 'https://semproducts.com/public/content/parts/PIM40973_web.png',
-        imageAlt: 'SEM Products Copperweld weld-through primer aerosol can',
-        linkLabel: 'View weld-through primer',
-      }
-    ]
+    "name": "SEM Products",
+    "homepage": "https://semproducts.com/",
+    "category": "Paint Suppliers",
+    "description": "Automotive repair coatings and welding preparation products."
   },
   {
-    name: 'AMK Products',
-    homepage: 'https://www.amkproducts.com/',
-    category: 'Hardware & Fasteners',
-    description: 'Fastener kits and hardware for automotive restoration.',
-    references: [
-      {
-        title: 'Chrysler Master Chassis Fastener Kit (73B-SBDC)',
-        url: 'https://www.amkproducts.com/master-kits/chrysler-master-fastener-kits/?product_id=73B-SBDC&masterkits=ChryslerMasterKits&element=Chassis',
-        description: 'Chrysler chassis master fastener kit reference, part 73B-SBDC.',
-        image: 'https://www.amkproducts.com/wp-content/uploads/2018/12/KIT_69-E87-1-1-635x357.png',
-        imageAlt: 'Representative AMK master fastener kit display photo',
-        imageNote: 'Representative supplier image',
-        linkLabel: 'View fastener kit'
-      }
-    ]
+    "name": "AMK Products",
+    "homepage": "https://www.amkproducts.com/",
+    "category": "Hardware & Fasteners",
+    "description": "Fastener kits and hardware for automotive restoration."
   },
   {
-    name: 'Auto Metal Direct',
-    homepage: 'https://www.autometaldirect.com/',
-    category: 'Sheet Metal & Body Restoration',
-    description: 'Replacement panels and sheet metal for classic vehicles.',
-    references: [
-      {
-        title: 'Roof Skins',
-        url: 'https://www.autometaldirect.com/body-components/roof/roof-skins',
-        description: 'Browse replacement roof skins, including the 1970–1974 Barracuda listing.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/1013/600-1570-main.webp',
-        imageAlt: 'Auto Metal Direct 1970–1974 Barracuda roof skin',
-        linkLabel: 'Browse roof skins',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Plymouth ’Cuda Parts',
-        url: 'https://www.autometaldirect.com/search?query=cuda&page=1',
-        description: 'Search results for ’Cuda restoration parts and body components.',
-        image: 'https://www.autometaldirect.com/themes/shop/default/build/images/logo-C908UMhq.png',
-        imageAlt: 'Auto Metal Direct supplier logo for the ’Cuda parts search',
-        linkLabel: 'Browse ’Cuda parts',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Trunk Floor — OE Style — 1971–1974 Barracuda',
-        url: 'https://www.autometaldirect.com/trunk-floor-oe-style-71-74-barracuda',
-        description: 'Full OE-style replacement trunk floor.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/1210/800-1571_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Trunk Floor — OE Style — 1971–1974 Barracuda',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Trunk Floor Extension / Drop-Off — LH — 1970–1974 Barracuda',
-        url: 'https://www.autometaldirect.com/trunk-floor-extension-drop-off-lh-70-74-barracuda',
-        description: 'Driver-side trunk floor extension.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/1252/840-1570-L_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Trunk Floor Extension / Drop-Off — LH — 1970–1974 Barracuda',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Trunk Floor Extension / Drop-Off — RH — 1970–1974 Barracuda',
-        url: 'https://www.autometaldirect.com/trunk-floor-extension-drop-off-rh-70-74-barracuda',
-        description: 'Passenger-side trunk floor extension.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/1253/840-1570-R_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Trunk Floor Extension / Drop-Off — RH — 1970–1974 Barracuda',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Trunk Floor Braces — 2-Piece Set — 1970–1974 E-Body',
-        url: 'https://www.autometaldirect.com/trunk-floor-braces-2pcs-set-70-74-e-body',
-        description: 'Two-piece trunk floor brace set.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/5028/820-1570-P_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Trunk Floor Braces — 2-Piece Set — 1970–1974 E-Body',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Fuel Filler Tube to Trunk Floor Seal — 1970–1974 E-Body',
-        url: 'https://www.autometaldirect.com/fuel-filler-tube-to-trunk-floor-seal-70-74-e-body',
-        description: 'Seal at the fuel filler tube opening in the trunk floor.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/3899/F-151R_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Fuel Filler Tube to Trunk Floor Seal — 1970–1974 E-Body',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Outer Wheelhouse — LH — 1970–1974 Barracuda',
-        url: 'https://www.autometaldirect.com/outer-wheelhouse-lh-70-74-barracuda',
-        description: 'Driver-side outer rear wheelhouse panel.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/2722/770-1570-L_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Outer Wheelhouse — LH — 1970–1974 Barracuda',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Outer Wheelhouse — RH — 1970–1974 Barracuda',
-        url: 'https://www.autometaldirect.com/outer-wheelhouse-rh-70-74-barracuda',
-        description: 'Passenger-side outer rear wheelhouse panel.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/2723/770-1570-R_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Outer Wheelhouse — RH — 1970–1974 Barracuda',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Inner Wheelhouse — LH — 1970–1974 E-Body',
-        url: 'https://www.autometaldirect.com/inner-wheelhouse-lh-70-74-e-body',
-        description: 'Driver-side inner rear wheelhouse panel.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/2704/760-1570-L_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Inner Wheelhouse — LH — 1970–1974 E-Body',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Inner Wheelhouse — RH — 1970–1974 E-Body',
-        url: 'https://www.autometaldirect.com/inner-wheelhouse-rh-70-74-e-body',
-        description: 'Passenger-side inner rear wheelhouse panel.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/2705/760-1570-R_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Inner Wheelhouse — RH — 1970–1974 E-Body',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Rear Frame Rail — LH — 1970–1974 E-Body',
-        url: 'https://www.autometaldirect.com/rear-frame-rail-lh-70-74-e-body',
-        description: 'Driver-side rear structural frame rail.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/1309/895-1570-L_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Rear Frame Rail — LH — 1970–1974 E-Body',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Rear Frame Rail — RH — 1970–1974 E-Body',
-        url: 'https://www.autometaldirect.com/rear-frame-rail-rh-70-74-e-body',
-        description: 'Passenger-side rear structural frame rail.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/1310/895-1570-R_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Rear Frame Rail — RH — 1970–1974 E-Body',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Tail Light Panel — 1973–1974 Barracuda',
-        url: 'https://www.autometaldirect.com/tail-light-panel---73-74-barracuda',
-        description: 'Model-year-specific rear tail light panel.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/1326/900-1573_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Tail Light Panel — 1973–1974 Barracuda',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Deck Lid Without Spoiler Holes — 1970–1974 Barracuda',
-        url: 'https://www.autometaldirect.com/deck-lid-without-spoiler-holes-70-74-barracuda',
-        description: 'Replacement trunk lid without predrilled spoiler holes.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/1282/850-1570-1_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Deck Lid Without Spoiler Holes — 1970–1974 Barracuda',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Gas Tank Straps — LH/RH Pair — 1970–1974 Dodge/Plymouth E-Body',
-        url: 'https://www.autometaldirect.com/gas-tank-straps-lh-rh-pair-70-74-dodge-plymouth-e-body',
-        description: 'Pair of fuel tank retention straps.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/2803/X880-1570-P_800.webp',
-        imageAlt: 'Auto Metal Direct product photo — Gas Tank Straps — LH/RH Pair — 1970–1974 Dodge/Plymouth E-Body',
-        linkLabel: 'View product',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Front Fender — RH — 1972–1974 Barracuda',
-        url: 'https://www.autometaldirect.com/front-fender-rh-72-74-barracuda',
-        description: 'Right-hand (passenger-side) front replacement fender; AMD 1972–1974 Barracuda fitment listing.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/291/200-1572-R_1.webp',
-        imageAlt: 'Auto Metal Direct right-hand front fender for 1972–1974 Barracuda',
-        linkLabel: 'View front fender',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      },
-      {
-        title: 'Front Grille — OE-Style — 1972–1974 Barracuda',
-        url: 'https://www.autometaldirect.com/grille-72-74-barracuda',
-        description: 'Reproduction OE-style front grille for 1972–1974 Plymouth Barracuda.',
-        image: 'https://www.autometaldirect.com/cache/medium/product/19381/X150-157201.webp',
-        imageAlt: 'Auto Metal Direct reproduction front grille for 1972–1974 Barracuda',
-        linkLabel: 'View grille',
-        vehicleApplicability: '1973 Plymouth ’Cuda'
-      }
-    ]
+    "name": "Auto Metal Direct",
+    "homepage": "https://www.autometaldirect.com/",
+    "category": "Sheet Metal & Body Restoration",
+    "description": "Replacement panels and sheet metal for classic vehicles."
   },
   {
-    name: 'Detroit Muscle Technologies',
-    homepage: 'https://www.detroitmuscletechnologies.com/',
-    category: 'Restoration Parts & Components',
-    description: 'Mopar and other classic vehicle restoration parts, gaskets, and components.',
-    references: []
+    "name": "Detroit Muscle Technologies",
+    "homepage": "https://www.detroitmuscletechnologies.com/",
+    "category": "Restoration Parts & Components",
+    "description": "Mopar and other classic vehicle restoration parts, gaskets, and components."
   }
 ];
-
-const slugify = (value) =>
-  value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-
-const groups = [...new Set(suppliers.map((supplier) => supplier.category))]
-  .map((category) => ({
-    name: category,
-    id: slugify(category),
-    suppliers: suppliers.filter((supplier) => supplier.category === category)
-  }));
+const slugify = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const groups = [...new Set(suppliers.map((supplier) => supplier.category))].map((name) => ({
+  name,
+  id: slugify(name),
+  suppliers: suppliers.filter((supplier) => supplier.category === name)
+}));
 ---
-
 <BaseLayout
-  title="Restoration References | Mopar Restoration Garage"
-  description="Parts, suppliers, tools, and resources for our Mopar restoration projects."
+  title="Global Restoration Links | Mopar Restoration Garage"
+  description="General automotive restoration suppliers and resource websites for the Mopar Restoration Garage."
 >
-  <section class="references-intro">
-    <p class="eyebrow">Garage resources</p>
-    <h1>Restoration References</h1>
-    <p class="lead">Parts, suppliers, tools, and resources for our Mopar restoration projects.</p>
-    <p class="intro-note">
-      Visit a supplier's main website from its heading, or use the individual
-      thumbnails below to open a specific product or parts collection.
-      Confirm vehicle fitment and availability before ordering.
-    </p>
+  <section class="resources-intro">
+    <p class="eyebrow">Mopar Restoration Garage / Global resources</p>
+    <h1>Global Links</h1>
+    <p class="lead">General supplier websites and restoration resources for every project in the garage.</p>
+    <p class="intro-note">This directory links to supplier homepages, not individual products. Part-specific links and purchase research belong in each vehicle's <a href="/builds/">Parts Wishlist</a>.</p>
   </section>
-
-  <nav class="category-nav" aria-label="Reference categories">
+  <nav class="category-nav" aria-label="Global resource categories">
     {groups.map((group) => <a href={'#' + group.id}>{group.name}</a>)}
   </nav>
-
   <div class="category-list">
     {groups.map((group) => (
-      <section class="reference-category" id={group.id} aria-labelledby={group.id + '-heading'}>
+      <section class="reference-category" id={group.id} aria-labelledby={group.id + '-title'}>
         <div class="category-heading">
-          <p class="eyebrow">Reference category</p>
-          <h2 id={group.id + '-heading'}>{group.name}</h2>
+          <p class="eyebrow">Resource category</p>
+          <h2 id={group.id + '-title'}>{group.name}</h2>
         </div>
-
-        <div class="supplier-list">
+        <div class="supplier-grid">
           {group.suppliers.map((supplier) => (
-            <section class="supplier" aria-label={supplier.name}>
-              <div class="supplier-heading">
-                <div>
-                  <h3>
-                    <a href={supplier.homepage} target="_blank" rel="noopener noreferrer" aria-label={'Visit ' + supplier.name + ' homepage (opens in a new tab)'}>
-                      {supplier.name} <span aria-hidden="true">↗</span>
-                    </a>
-                  </h3>
-                  {supplier.description && <p>{supplier.description}</p>}
-                </div>
-                <a class="supplier-home" href={supplier.homepage} target="_blank" rel="noopener noreferrer">
-                  Supplier website <span aria-hidden="true">↗</span>
-                </a>
+            <article class="supplier-card">
+              <div class="supplier-copy">
+                <h3><a href={supplier.homepage} target="_blank" rel="noopener noreferrer">{supplier.name}</a></h3>
+                <p>{supplier.description}</p>
               </div>
-
-              {supplier.references.length > 0 ? (
-                <div class="product-grid">
-                  {supplier.references.map((reference) => (
-                    <article class="product-card">
-                      <a class="thumbnail-link" href={reference.url} target="_blank" rel="noopener noreferrer" aria-label={'Open ' + reference.title + ' (new tab)'}>
-                        {reference.image ? (
-                          <img
-                            src={reference.image}
-                            alt={reference.imageAlt ?? reference.title}
-                            width="112"
-                            height="112"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        ) : (
-                          <span class="thumbnail-placeholder" aria-hidden="true">PART</span>
-                        )}
-                      </a>
-                      <div class="product-details">
-                        <h4>
-                          <a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.title}</a>
-                        </h4>
-                        {reference.description && <p>{reference.description}</p>}
-                        {reference.vehicleApplicability && <p class="vehicle-note">{reference.vehicleApplicability}</p>}
-                        {reference.imageNote && <p class="image-note">{reference.imageNote}</p>}
-                        <div class="product-actions">
-                          <a class="product-link" href={reference.url} target="_blank" rel="noopener noreferrer">
-                            {reference.linkLabel ?? 'View reference'} <span aria-hidden="true">↗</span>
-                          </a>
-                          {(reference.purchaseStatus || !reference.linkLabel?.startsWith('Browse')) && (
-                            <span class="purchase-status">({reference.purchaseStatus ?? (supplier.category === 'Paint Suppliers' ? 'researching options' : 'Pending Purchased')})</span>
-                          )}
-                        </div>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              ) : (
-                <p class="supplier-only-note">Supplier homepage reference — specific product links can be added here as needed.</p>
-              )}
-            </section>
+              <a class="site-link" href={supplier.homepage} target="_blank" rel="noopener noreferrer" aria-label={'Visit ' + supplier.name + ' website (opens in a new tab)'}>
+                Visit website <span aria-hidden="true">&rarr;</span>
+              </a>
+            </article>
           ))}
         </div>
       </section>
     ))}
   </div>
 </BaseLayout>
-
 <style>
-  .references-intro{max-width:820px;margin:1.5rem 0 2.4rem}
-  h1{margin:.45rem 0 1rem;letter-spacing:-.04em}
-  .lead{font-size:1.17rem;line-height:1.65;color:#edf0ef;margin:0 0 .9rem}
-  .intro-note{font-size:1rem;line-height:1.7;color:#b7c0c2;margin:0}
-  .category-nav{display:flex;flex-wrap:wrap;gap:.65rem;margin:0 0 2rem;padding:1rem;background:#191e21;border:1px solid #363d41;border-radius:14px}
-  .category-nav a{display:inline-flex;align-items:center;padding:.65rem .85rem;border:1px solid #465057;border-radius:8px;color:#e7ecee;text-decoration:none;font-size:.9rem;font-weight:700}
+  .resources-intro{max-width:840px;margin:1.5rem 0 1.7rem}
+  h1{margin:.45rem 0 .85rem;letter-spacing:-.04em}
+  .lead{font-size:1.14rem;line-height:1.6;color:#edf0ef;margin:0 0 .65rem}
+  .intro-note{font-size:.96rem;line-height:1.6;color:#b8c4c8;margin:0}
+  .intro-note a{font-weight:750;color:#ffbd86}
+  .category-nav{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 1.55rem;padding:.8rem;background:#191e21;border:1px solid #394348;border-radius:12px}
+  .category-nav a{display:inline-flex;align-items:center;padding:.5rem .8rem;border:1px solid #465057;border-radius:7px;color:#e7ecee;text-decoration:none;font-size:.87rem;font-weight:700}
   .category-nav a:hover,.category-nav a:focus-visible{border-color:#f47727;color:#ffbd72}
-  .category-list{display:grid;gap:1.25rem}
-  .reference-category{scroll-margin-top:1rem;background:#1b2023;border:1px solid #363d41;border-radius:16px;padding:1.5rem}
-  .category-heading{border-bottom:1px solid #394146;padding-bottom:.9rem;margin-bottom:1.25rem}
-  .category-heading h2{font-size:clamp(1.5rem,3vw,2.15rem);margin:.25rem 0}
-  .supplier-list{display:grid;gap:1.3rem}
-  .supplier{background:#202629;border:1px solid #41494e;border-radius:12px;padding:1.2rem;min-width:0}
-  .supplier-heading{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.1rem}
-  .supplier-heading h3{font-size:1.27rem;margin:0 0 .3rem}
-  .supplier-heading h3 a{color:#ffbd72;text-decoration:none}
-  .supplier-heading h3 a:hover{text-decoration:underline;text-underline-offset:.2em}
-  .supplier-heading p{color:#b7c0c2;line-height:1.5;margin:0;font-size:.94rem}
-  .supplier-home{flex:none;padding:.6rem .8rem;border:1px solid #565e63;border-radius:8px;color:#e7ecee;font-size:.88rem;font-weight:700;text-decoration:none}
-  .supplier-home:hover{border-color:#f47727;color:#ffbd72}
-  .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:.8rem}
-  .product-card{display:flex;gap:1rem;align-items:flex-start;background:#181e21;border:1px solid #3c454a;border-radius:10px;padding:.95rem;min-width:0}
-  .product-card:focus-within{border-color:#f47727}
-  .thumbnail-link{display:flex;align-items:center;justify-content:center;flex:none;width:112px;height:112px;overflow:hidden;background:#30383c;border:1px solid #4a555b;border-radius:8px}
-  .thumbnail-link img{width:100%;height:100%;object-fit:contain;background:#2a3134}
-  .thumbnail-placeholder{color:#94a2a8;letter-spacing:.1em;font-weight:800}
-  .product-details{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:.42rem;flex:1}
-  .product-details h4{font-size:1.03rem;line-height:1.4;margin:0}
-  .product-details h4 a{color:#f2f4f3;text-decoration:none}
-  .product-details h4 a:hover{color:#ffbd72;text-decoration:underline}
-  .product-details p{font-size:.87rem;line-height:1.5;color:#b7c0c2;margin:0}
-  .product-details .vehicle-note{color:#e1bf99}
-  .product-details .image-note{font-size:.76rem;font-style:italic;color:#a6b2b8}
-  .product-actions{display:flex;align-items:center;flex-wrap:wrap;column-gap:.6rem;row-gap:.3rem;margin-top:.25rem}
-  .product-link{color:#ffad72;font-size:.88rem;font-weight:750;text-decoration:none}
-  .product-link:hover{text-decoration:underline;text-underline-offset:.2em}
-  .purchase-status{font-size:.8rem;font-weight:650;color:#e5bd82;white-space:nowrap}
-  .supplier-only-note{font-size:.9rem;color:#aebcc1;margin:0;line-height:1.6}
-  a:focus-visible{outline:2px solid #ff954c;outline-offset:3px}
-  @media(max-width:700px){
-    .reference-category{padding:1.05rem}
-    .supplier{padding:1rem}
-    .product-grid{grid-template-columns:minmax(0,1fr)}
-  }
-  @media(max-width:440px){
-    .category-nav{padding:.7rem}
-    .category-nav a{font-size:.84rem}
-    .lead{font-size:1.05rem}
-    .product-card{gap:.75rem;padding:.75rem}
-    .thumbnail-link{width:88px;height:88px}
-    .supplier-home{width:100%;text-align:center}
-  }
+  .category-list{display:grid;gap:1rem;margin-bottom:2.5rem}
+  .reference-category{scroll-margin-top:1rem;background:#1b2023;border:1px solid #3d484d;border-radius:14px;padding:1.35rem}
+  .category-heading{margin-bottom:.9rem}
+  .category-heading .eyebrow{margin:0}
+  .category-heading h2{font-size:clamp(1.3rem,2.6vw,1.75rem);margin:.25rem 0}
+  .supplier-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}
+  .supplier-card{display:flex;flex-direction:column;gap:.8rem;justify-content:space-between;min-width:0;background:#222a2e;border:1px solid #48545a;border-radius:11px;padding:1.1rem}
+  .supplier-copy h3{font-size:1.1rem;margin:0 0 .45rem}
+  .supplier-copy h3 a{color:#f5f6f5;text-decoration:none}
+  .supplier-copy h3 a:hover{text-decoration:underline;color:#ffd1ab}
+  .supplier-copy p{color:#bfc9cd;font-size:.9rem;line-height:1.55;margin:0}
+  .site-link{display:inline-flex;align-items:center;gap:.35rem;align-self:flex-start;padding:.5rem .75rem;background:#493627;border:1px solid #855636;border-radius:7px;color:#ffca9d;font-size:.87rem;font-weight:750;text-decoration:none}
+  .site-link:hover,.site-link:focus-visible{background:#5b3a25;border-color:#ffbd86;color:#ffe4cc}
+  a:focus-visible{outline:2px solid #ffbd72;outline-offset:2px}
+  @media(max-width:700px){.supplier-grid{grid-template-columns:minmax(0,1fr)}.reference-category{padding:1rem}.category-nav{padding:.6rem}}
 </style>

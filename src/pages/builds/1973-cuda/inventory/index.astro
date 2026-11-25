@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CudaProjectHeader from '../../../../components/CudaProjectHeader.astro';
+import { cudaOwnedParts } from '../../../../data/cuda-owned-parts.js';
+const inventoryCount = cudaOwnedParts.length;
+---
+<BaseLayout
+  title="1973 Plymouth ’Cuda — Parts Inventory | Mopar Restoration Garage"
+  description="Photo-based inventory of parts already on hand for the 1973 Plymouth Cuda restoration, kept separate from the wishlist."
+>
+  <CudaProjectHeader active="inventory" section="Parts Inventory" />
+  <section class="inventory" aria-labelledby="inventory-heading">
+    <div class="inventory-heading">
+      <div>
+        <p class="eyebrow">Parts on hand</p>
+        <h2 id="inventory-heading">Parts Inventory</h2>
+        <p>Document what is already here, verify condition and quantities, and identify what still needs to be sourced. This is separate from the Parts Wishlist.</p>
+      </div>
+      <span class="inventory-count">{inventoryCount} cataloged {inventoryCount === 1 ? 'part' : 'parts'}</span>
+    </div>
+    {cudaOwnedParts.length === 0 ? (
+      <div class="empty-state">
+        <div class="empty-icon" aria-hidden="true">0</div>
+        <h3>No parts have been cataloged yet</h3>
+        <p>Inventory is intentionally empty until photographs and details of the parts already on hand are reviewed. This does not mean the vehicle has no parts.</p>
+        <div class="photo-intake">
+          <h4>What to document for each part</h4>
+          <ul>
+            <li>Overall photographs, including any loose pieces that belong with it</li>
+            <li>Part numbers, labels, markings, and identifying details</li>
+            <li>Quantity, condition, and whether any pieces or hardware are missing</li>
+            <li>Storage location so the part can be found later</li>
+          </ul>
+        </div>
+        <p class="note">Photographs will be added as the parts are documented; this page does not yet provide direct uploading.</p>
+      </div>
+    ) : (
+      <div class="inventory-grid">
+        {cudaOwnedParts.map((part) => (
+          <article class="inventory-card">
+            {part.images?.[0] && (
+              <img src={part.images[0].src} alt={part.images[0].alt || part.name} loading="lazy" decoding="async" />
+            )}
+            <div class="inventory-card-body">
+              <p class="category">{part.group || 'Uncategorized'}</p>
+              <h3>{part.name}</h3>
+              <p>Quantity: {part.quantity ?? 'Not verified'}</p>
+              <p>Condition: {part.condition || 'Not verified'}</p>
+              {part.location && <p>Location: {part.location}</p>}
+              {part.notes && <p>{part.notes}</p>}
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>
+<style>
+  .inventory{margin-bottom:3rem}
+  .inventory-heading{display:flex;justify-content:space-between;align-items:start;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.45rem}
+  h2{font-size:clamp(1.7rem,3vw,2.35rem);margin:.28rem 0 .7rem}
+  .inventory-heading p:not(.eyebrow){max-width:55rem;color:#c4cfd2;line-height:1.65;margin:0}
+  .inventory-count{background:#302d27;border:1px solid #79614b;color:#ffdbb5;border-radius:9px;padding:.55rem .75rem;font-size:.88rem;font-weight:800;white-space:nowrap}
+  .empty-state{background:#20282c;border:1px solid #48555b;border-radius:15px;padding:clamp(1.1rem,3vw,2.1rem);max-width:100%}
+  .empty-icon{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#48372c;border:1px solid #9a684b;color:#ffd7ba;font-size:1.25rem;font-weight:900}
+  h3{font-size:1.4rem;margin:1rem 0 .65rem}
+  .empty-state>p{color:#c6d0d3;line-height:1.6;max-width:54rem}
+  .photo-intake{margin:1.4rem 0;padding:1.2rem;border:1px solid #49555b;border-radius:11px;background:#172024}
+  h4{font-size:1.04rem;margin:0 0 .7rem;color:#f3f5f5}
+  .photo-intake ul{margin:0;padding-left:1.35rem;color:#c7d2d6;line-height:1.75}
+  .note{font-size:.88rem;color:#aebec4!important}
+  .inventory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:1rem}
+  .inventory-card{overflow:hidden;background:#20282c;border:1px solid #4b565d;border-radius:12px}
+  .inventory-card>img{display:block;width:100%;height:210px;object-fit:contain;background:#141a1d}
+  .inventory-card-body{padding:1rem}
+  .inventory-card-body h3{font-size:1.15rem;margin:.4rem 0}
+  .inventory-card-body p{color:#c6d1d3;font-size:.9rem;line-height:1.5;margin:.35rem 0}
+  .inventory-card-body .category{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:#ffbd86;font-weight:750}
+</style>

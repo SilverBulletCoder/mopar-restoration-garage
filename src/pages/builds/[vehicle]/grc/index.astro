@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import GRCChecklist from '../../../../components/GRCChecklist.astro';
+import CudaProjectHeader from '../../../../components/CudaProjectHeader.astro';
+import TruckProjectHeader from '../../../../components/TruckProjectHeader.astro';
+import { truckProjects } from '../../../../data/truck-projects.js';
 
 export function getStaticPaths() {
   return [
@@ -14,16 +17,23 @@ export function getStaticPaths() {
 }
 
 const { vehicle } = Astro.props;
+const truckProject = truckProjects.find((project) => project.slug === vehicle.slug);
 ---
 <BaseLayout
   title={'GRC — ' + vehicle.name + ' | Mopar Restoration Garage'}
   description={'A separate browser-based General Restoration Checks checklist for the ' + vehicle.name + ', based on the 235-task master GRC.'}
 >
-  <nav class="grc-breadcrumb" aria-label="Breadcrumb">
-    <a href="/builds/">Builds</a><span aria-hidden="true">/</span>
-    <a href={'/builds/' + vehicle.slug + '/'}>{vehicle.shortName}</a><span aria-hidden="true">/</span>
-    <span>GRC</span>
-  </nav>
+  {vehicle.slug === '1973-cuda' ? (
+    <CudaProjectHeader active="grc" section="Restoration Checks" />
+  ) : truckProject ? (
+    <TruckProjectHeader vehicle={truckProject} active="grc" section="Restoration Checks" />
+  ) : (
+    <nav class="grc-breadcrumb" aria-label="Breadcrumb">
+      <a href="/builds/">Builds</a><span aria-hidden="true">/</span>
+      <a href={'/builds/' + vehicle.slug + '/'}>{vehicle.shortName}</a><span aria-hidden="true">/</span>
+      <span>GRC</span>
+    </nav>
+  )}
   <p class="eyebrow">Vehicle-specific restoration checks</p>
   <h1>GRC <span class="vehicle-name">{vehicle.name}</span></h1>
   <p class="grc-lead">Your separate checklist from the universal 235-check GRC. Review tasks for this vehicle's body type and equipment, mark unrelated pickup/unibody/optional checks Not applicable, and leave the shared master unchanged.</p>

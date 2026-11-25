@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import TruckProjectHeader from '../../../../components/TruckProjectHeader.astro';
+import PartsWishlist from '../../../../components/PartsWishlist.astro';
+import { truckProjects } from '../../../../data/truck-projects.js';
+export function getStaticPaths() {
+  return truckProjects.map((vehicle) => ({
+    params: { vehicle: vehicle.slug },
+    props: { vehicle }
+  }));
+}
+const { vehicle } = Astro.props;
+---
+<BaseLayout
+  title={vehicle.name + ' — Parts Wishlist | Mopar Restoration Garage'}
+  description={'Saved part-specific links for the ' + vehicle.name + ', organized by supplier and research status.'}
+>
+  <TruckProjectHeader vehicle={vehicle} active="wishlist" section="Parts Wishlist" />
+  <PartsWishlist groups={vehicle.wishlistGroups} vehicleName={vehicle.name} />
+</BaseLayout>
